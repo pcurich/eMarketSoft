@@ -1,0 +1,32 @@
+﻿REGISTRO DE CONCEPTOS
+
+Para registrar un componente con Autofac es usando un ContainerBuilder y se informa al builder que componentes se exponen como servicios
+
+Los componentes pueden ser creados via reflection (registrando un tipo especifico de .net o generico ) que provee una instancia
+o por la expresion landa (funcion anonima que ejecuta una instancia del objeto). 
+
+// Create the builder with which components/services are registered.
+var builder = new ContainerBuilder();
+
+// Register types that expose interfaces...
+builder.RegisterType<ConsoleLogger>().As<ILogger>();
+
+// Register instances of objects you create...
+var output = new StringWriter();
+builder.RegisterInstance(output).As<TextWriter>();
+
+// Register expressions that execute to create objects...
+builder.Register(c => new ConfigReader("mysection")).As<IConfigReader>();
+
+// Build the container to finalize registrations
+// and prepare for object resolution.
+var container = builder.Build();
+
+// Now you can resolve services using Autofac. For example,
+// this line will execute the lambda expression registered
+// to the IConfigReader service.
+using(var scope = container.BeginLifetimeScope())
+{
+  var reader = container.Resolve<IConfigReader>();
+}
+ 

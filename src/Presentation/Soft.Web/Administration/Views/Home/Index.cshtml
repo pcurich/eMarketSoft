@@ -1,0 +1,15 @@
+﻿@using Soft.Services.Security
+@model DashboardModel
+@{
+    //page title
+    ViewBag.Title = T("Admin.Dashboard").Text;
+
+    var permissionService = EngineContext.Current.Resolve<IPermissionService>();
+    var canManageOrders = permissionService.Authorize(StandardPermissionProvider.ManageOrders);
+    var canManageCustomers = permissionService.Authorize(StandardPermissionProvider.ManageCustomers);
+    var canManageProducts = permissionService.Authorize(StandardPermissionProvider.ManageProducts);
+}
+<div class="section-title">
+    <img src="@Url.Content("~/Administration/Content/images/ico-dashboard.png")" alt="" />
+    @T("Admin.Dashboard")
+</div>
