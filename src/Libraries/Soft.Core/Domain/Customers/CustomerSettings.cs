@@ -72,7 +72,7 @@ namespace Soft.Core.Domain.Customers
         public bool AllowViewingProfiles { get; set; }
 
         /// <summary>
-        /// Si se le avisa al dueño de la tienda sobre los usuarios nuevos mediante notificacion  
+        /// Si se le avisa al dueño de la tienda sobre los usuarios nuevos mediante notificacion 
         /// </summary>
         public bool NotifyNewCustomerRegistration { get; set; }
 
@@ -139,97 +139,87 @@ namespace Soft.Core.Domain.Customers
         public bool DateOfBirthEnabled { get; set; }
 
         /// <summary>
-        /// Gets or sets a value indicating whether 'Company' is enabled
+        /// Indica si la compañia esta activa
         /// </summary>
         public bool CompanyEnabled { get; set; }
 
         /// <summary>
-        /// Gets or sets a value indicating whether 'Company' is required
+        /// Si la compañia es requerida
         /// </summary>
         public bool CompanyRequired { get; set; }
 
         /// <summary>
-        /// Gets or sets a value indicating whether 'Street address' is enabled
+        /// Indica si la direccion esta activa
         /// </summary>
         public bool StreetAddressEnabled { get; set; }
 
         /// <summary>
-        /// Gets or sets a value indicating whether 'Street address' is required
+        /// Si la direccion es requerida
         /// </summary>
         public bool StreetAddressRequired { get; set; }
 
         /// <summary>
-        /// Gets or sets a value indicating whether 'Street address 2' is enabled
+        /// Indica si la direccion2 esta activa
         /// </summary>
         public bool StreetAddress2Enabled { get; set; }
 
         /// <summary>
-        /// Gets or sets a value indicating whether 'Street address 2' is required
+        /// Si la direccion2 es requerida
         /// </summary>
         public bool StreetAddress2Required { get; set; }
 
         /// <summary>
-        /// Gets or sets a value indicating whether 'Zip / postal code' is enabled
+        /// Indica si el codigo postal esta activo
         /// </summary>
         public bool ZipPostalCodeEnabled { get; set; }
 
         /// <summary>
-        /// Gets or sets a value indicating whether 'Zip / postal code' is required
+        /// Si el codigo es requerido
         /// </summary>
         public bool ZipPostalCodeRequired { get; set; }
 
         /// <summary>
-        /// Gets or sets a value indicating whether 'City' is enabled
+        /// Indica si la ciudad esta activa
         /// </summary>
         public bool CityEnabled { get; set; }
 
         /// <summary>
-        /// Gets or sets a value indicating whether 'City' is required
+        /// Si la ciudad es requerida
         /// </summary>
         public bool CityRequired { get; set; }
 
         /// <summary>
-        /// Gets or sets a value indicating whether 'Country' is enabled
+        /// Indica si el pais esta activo
         /// </summary>
         public bool CountryEnabled { get; set; }
 
         /// <summary>
-        /// Gets or sets a value indicating whether 'Country' is required
-        /// </summary>
-        public bool CountryRequired { get; set; }
-
-        /// <summary>
-        /// Gets or sets a value indicating whether 'State / province' is enabled
+        /// Si el pais esta activo
         /// </summary>
         public bool StateProvinceEnabled { get; set; }
 
         /// <summary>
-        /// Gets or sets a value indicating whether 'State / province' is required
-        /// </summary>
-        public bool StateProvinceRequired { get; set; }
-
-        /// <summary>
-        /// Gets or sets a value indicating whether 'Phone number' is enabled
+        /// Indica si telefono esta activo
         /// </summary>
         public bool PhoneEnabled { get; set; }
 
         /// <summary>
-        /// Gets or sets a value indicating whether 'Phone number' is required
+        /// Si el telefono es requerido
         /// </summary>
         public bool PhoneRequired { get; set; }
 
         /// <summary>
-        /// Gets or sets a value indicating whether 'Fax number' is enabled
+        /// Indica si el fax esta activo
         /// </summary>
         public bool FaxEnabled { get; set; }
 
         /// <summary>
-        /// Gets or sets a value indicating whether 'Fax number' is required
+        /// Si el fax es requerido
         /// </summary>
         public bool FaxRequired { get; set; }
 
         /// <summary>
-        /// Gets or sets a value indicating whether privacy policy should accepted during registration
+        /// Si la politica de privacidad deberia aceptar durante el registro
         /// </summary>
         public bool AcceptPrivacyPolicyEnabled { get; set; }
 

@@ -5,7 +5,14 @@ namespace Soft.Core.Domain.Security
 {
     public class SecuritySettings : ISettings
     {
+        /// <summary>
+        /// Si todas las paginas se van a forzar a usar SSL (Sin importar el atributo de la clase [SoftHttpsRequirementAttribute]
+        /// </summary>
         public bool ForceSslForAllPages { get; set; }
+
+        /// <summary>
+        /// Llave de encriptacion 
+        /// </summary>
         public string EncryptionKey { get; set; }
 
         /// <summary>

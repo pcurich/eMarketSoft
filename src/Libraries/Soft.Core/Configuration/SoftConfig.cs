@@ -8,12 +8,12 @@ namespace Soft.Core.Configuration
     public partial class SoftConfig : IConfigurationSectionHandler
     {
         /// <summary>
-        /// Ademas de configurar los ensamblados tambien los examina y carga en el directorio bin
+        /// Ademas de configurar los ensamblados tambien los examina y carga del directorio bin
         /// </summary>
         public bool DynamicDiscovery { get; private set; }
 
         /// <summary>
-        /// personalizacion <see cref="IEngine"/> para manejar la instancia por default de la aplicacion
+        /// Personalizacion <see cref="IEngine"/> para manejar la instancia por default de la aplicacion
         /// </summary>
         public string EngineType { get; private set; }
 
@@ -28,7 +28,7 @@ namespace Soft.Core.Configuration
         public bool IgnoreStartupTasks { get; private set; }
 
         /// <summary>
-        /// Ruta de la base de datos con usuarios 
+        /// Ruta de la base de datos con usuarios po ips
         /// </summary>
         public string UserAgentStringsPath { get; private set; }
 

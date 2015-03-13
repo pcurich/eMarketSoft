@@ -14,7 +14,7 @@ namespace Soft.Core.ComponentModel
         {
             TypeConverter = TypeDescriptor.GetConverter(typeof (T));
             if (TypeConverter == null)
-                throw new InvalidOperationException("No type converter existe para " + typeof (T).FullName);
+                throw new InvalidOperationException("No existe el tipo de conversor para " + typeof (T).FullName);
         }
 
         protected virtual string[] GetStringArray(string input)
@@ -26,6 +26,7 @@ namespace Soft.Core.ComponentModel
                 .Split(',')
                 .Select(x => x.Trim())
                 .ToArray();
+
             return result;
         }
 
@@ -58,8 +59,7 @@ namespace Soft.Core.ComponentModel
             return result;
         }
 
-        public override object ConvertTo(ITypeDescriptorContext context, CultureInfo culture, object value,
-            Type destinationType)
+        public override object ConvertTo(ITypeDescriptorContext context, CultureInfo culture, object value,Type destinationType)
         {
             if (destinationType != typeof (string))
                 return base.ConvertTo(context, culture, value, destinationType);
@@ -71,7 +71,7 @@ namespace Soft.Core.ComponentModel
             //no se usa string.Join() porque no soporta invariant culture
             for (var i = 0; i < ((IList<T>) value).Count; i++)
             {
-                var str1 = Convert.ToString(((IList<T>) value)[i], CultureInfo.InvariantCulture);
+                var str1 = Convert.ToString(((IList<T>) value)[i], culture);
                 result += str1;
                 //no se agrega coma despues del ultimo elemento
                 if (i != ((IList<T>) value).Count - 1)
