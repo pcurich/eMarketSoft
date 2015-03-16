@@ -194,9 +194,19 @@ namespace Soft.Core.Domain.Customers
         public bool CountryEnabled { get; set; }
 
         /// <summary>
-        /// Si el pais esta activo
+        /// Si el pais es requerido
+        /// </summary>
+        public bool CountryRequired { get; set; }
+        
+        /// <summary>
+        /// Si el estado esta activo
         /// </summary>
         public bool StateProvinceEnabled { get; set; }
+
+        /// <summary>
+        /// Si el estado es requerido
+        /// </summary>
+        public bool StateProvinceRequired { get; set; }
 
         /// <summary>
         /// Indica si telefono esta activo

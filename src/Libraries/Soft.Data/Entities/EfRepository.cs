@@ -27,6 +27,28 @@ namespace Soft.Data.Entities
         private readonly IDbContext _context;
         private IDbSet<T> _entities;
 
+        /// <summary>
+        ///     Gets a table
+        /// </summary>
+        public virtual IQueryable<T> Table{get { return Entities; }}
+
+        /// <summary>
+        ///     Gets a table with "no tracking" enabled (EF feature) Use it only when you load record(s) only for read-only
+        ///     operations
+        /// </summary>
+        public virtual IQueryable<T> TableNoTracking
+        {
+            get { return Entities.AsNoTracking(); }
+        }
+
+        /// <summary>
+        ///     Entities
+        /// </summary>
+        protected virtual IDbSet<T> Entities
+        {
+            get { return _entities ?? (_entities = _context.Set<T>()); }
+        }
+
         #endregion
 
         #region Metodos
@@ -199,40 +221,6 @@ namespace Soft.Data.Entities
                 var fail = new Exception(msg, dbEx);
                 //Debug.WriteLine(fail.Message, fail);
                 throw fail;
-            }
-        }
-
-        #endregion
-
-        #region Properties
-
-        /// <summary>
-        ///     Gets a table
-        /// </summary>
-        public virtual IQueryable<T> Table
-        {
-            get { return Entities; }
-        }
-
-        /// <summary>
-        ///     Gets a table with "no tracking" enabled (EF feature) Use it only when you load record(s) only for read-only
-        ///     operations
-        /// </summary>
-        public virtual IQueryable<T> TableNoTracking
-        {
-            get { return Entities.AsNoTracking(); }
-        }
-
-        /// <summary>
-        ///     Entities
-        /// </summary>
-        protected virtual IDbSet<T> Entities
-        {
-            get
-            {
-                if (_entities == null)
-                    _entities = _context.Set<T>();
-                return _entities;
             }
         }
 

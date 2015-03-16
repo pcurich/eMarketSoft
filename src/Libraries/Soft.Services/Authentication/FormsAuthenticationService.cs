@@ -7,25 +7,25 @@ using Soft.Services.Customers;
 namespace Soft.Services.Authentication
 {
     /// <summary>
-    /// Authentication service
+    ///     Authentication service
     /// </summary>
-    public partial class FormsAuthenticationService : IAuthenticationService
+    public class FormsAuthenticationService : IAuthenticationService
     {
-        private readonly HttpContextBase _httpContext;
         private readonly ICustomerService _customerService;
         private readonly CustomerSettings _customerSettings;
         private readonly TimeSpan _expirationTimeSpan;
+        private readonly HttpContextBase _httpContext;
 
         private Customer _cachedCustomer;
 
         /// <summary>
-        /// Ctor
+        ///     Ctr
         /// </summary>
-        /// <param name="httpContext">HTTP context</param>
-        /// <param name="customerService">Customer service</param>
-        /// <param name="customerSettings">Customer settings</param>
-        public FormsAuthenticationService(HttpContextBase httpContext,
-            ICustomerService customerService, CustomerSettings customerSettings)
+        /// <param name="httpContext">HTTP contexto</param>
+        /// <param name="customerService">Servicio de cliente</param>
+        /// <param name="customerSettings">Configuracion del cliente</param>
+        public FormsAuthenticationService(HttpContextBase httpContext, ICustomerService customerService,
+            CustomerSettings customerSettings)
         {
             _httpContext = httpContext;
             _customerService = customerService;
@@ -33,10 +33,14 @@ namespace Soft.Services.Authentication
             _expirationTimeSpan = FormsAuthentication.Timeout;
         }
 
-
+        /// <summary>
+        ///     Ingreso
+        /// </summary>
+        /// <param name="customer">Cliente</param>
+        /// <param name="createPersistentCookie">Persistencia de cockies</param>
         public virtual void SignIn(Customer customer, bool createPersistentCookie)
         {
-            var now = DateTime.UtcNow.ToLocalTime();
+            DateTime now = DateTime.UtcNow.ToLocalTime();
 
             var ticket = new FormsAuthenticationTicket(
                 1 /*version*/,
@@ -47,16 +51,21 @@ namespace Soft.Services.Authentication
                 _customerSettings.UsernamesEnabled ? customer.Username : customer.Email,
                 FormsAuthentication.FormsCookiePath);
 
-            var encryptedTicket = FormsAuthentication.Encrypt(ticket);
+            string encryptedTicket = FormsAuthentication.Encrypt(ticket);
 
-            var cookie = new HttpCookie(FormsAuthentication.FormsCookieName, encryptedTicket);
-            cookie.HttpOnly = true;
+            var cookie = new HttpCookie(FormsAuthentication.FormsCookieName, encryptedTicket)
+            {
+                HttpOnly = true
+            };
+
             if (ticket.IsPersistent)
             {
                 cookie.Expires = ticket.Expiration;
             }
+
             cookie.Secure = FormsAuthentication.RequireSSL;
             cookie.Path = FormsAuthentication.FormsCookiePath;
+
             if (FormsAuthentication.CookieDomain != null)
             {
                 cookie.Domain = FormsAuthentication.CookieDomain;
@@ -66,12 +75,19 @@ namespace Soft.Services.Authentication
             _cachedCustomer = customer;
         }
 
+        /// <summary>
+        ///     Salida
+        /// </summary>
         public virtual void SignOut()
         {
             _cachedCustomer = null;
             FormsAuthentication.SignOut();
         }
 
+        /// <summary>
+        ///     Cliente autentificado
+        /// </summary>
+        /// <returns></returns>
         public virtual Customer GetAuthenticatedCustomer()
         {
             if (_cachedCustomer != null)
@@ -85,23 +101,29 @@ namespace Soft.Services.Authentication
                 return null;
             }
 
-            var formsIdentity = (FormsIdentity)_httpContext.User.Identity;
-            var customer = GetAuthenticatedCustomerFromTicket(formsIdentity.Ticket);
+            var formsIdentity = (FormsIdentity) _httpContext.User.Identity;
+            Customer customer = GetAuthenticatedCustomerFromTicket(formsIdentity.Ticket);
             if (customer != null && customer.Active && !customer.Deleted && customer.IsRegistered())
                 _cachedCustomer = customer;
             return _cachedCustomer;
         }
 
+        /// <summary>
+        ///     Obtiene al cliente autentificado desde el ticket creado
+        /// </summary>
+        /// <param name="ticket"></param>
+        /// <returns></returns>
         public virtual Customer GetAuthenticatedCustomerFromTicket(FormsAuthenticationTicket ticket)
         {
             if (ticket == null)
                 throw new ArgumentNullException("ticket");
 
-            var usernameOrEmail = ticket.UserData;
+            string usernameOrEmail = ticket.UserData;
 
             if (String.IsNullOrWhiteSpace(usernameOrEmail))
                 return null;
-            var customer = _customerSettings.UsernamesEnabled
+
+            Customer customer = _customerSettings.UsernamesEnabled
                 ? _customerService.GetCustomerByUsername(usernameOrEmail)
                 : _customerService.GetCustomerByEmail(usernameOrEmail);
             return customer;

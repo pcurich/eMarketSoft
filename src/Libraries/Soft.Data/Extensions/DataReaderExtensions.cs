@@ -25,10 +25,7 @@ namespace Soft.Data.Extensions
         /// Si no pasa automaticamente 
         /// </param>
         /// <returns></returns>
-        public static List<TType> DataReaderToObjectList<TType>
-            (this IDataReader reader,
-                string fieldsToSkip = null,
-                Dictionary<string, PropertyInfo> piList = null)
+        public static List<TType> DataReaderToObjectList<TType>(this IDataReader reader,string fieldsToSkip = null,Dictionary<string, PropertyInfo> piList = null)
             where TType : new()
         {
             if (reader == null)
@@ -36,7 +33,7 @@ namespace Soft.Data.Extensions
 
             var items = new List<TType>();
 
-            // Create lookup list of property info objects            
+            // Crear lista de búsqueda de información de la propiedad de los objetos          
             if (piList == null)
             {
                 piList = new Dictionary<string, PropertyInfo>();
@@ -60,7 +57,7 @@ namespace Soft.Data.Extensions
         /// reflexión  para coincidir los campos DataReader a una propiedad pública sobre el objeto pasado 
         /// Si no coindicen las propiedades propiedades no se modifican 
         /// 
-        /// Se necesita pasar un localizador en e l dataReader de una fila activa que se quiere serializar
+        /// Se necesita pasar un localizador en el dataReader de una fila activa que se quiere serializar
         /// </summary>
         /// <param name="reader">Instance of the DataReader to read data from. Should be located on the correct record (Read() should have been called on it before calling this method)</param>
         /// <param name="instance">Instance of the object to populate properties on</param>

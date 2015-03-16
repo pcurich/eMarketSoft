@@ -1,0 +1,358 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph DataVirtualized="True" Layout="ForceDirected" ZoomLevel="-1" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+  <Nodes>
+    <Node Id="(@1 @2 Type=(Name=IClaimsTranslator GenericParameterCount=1))" Category="CodeSchema_Interface" Bounds="247.600312569807,203.92786975932,174.413333333333,25" CodeSchemaProperty_IsPublic="True" CommonLabel="IClaimsTranslator‎&lt;T‎&gt;" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Interface" Label="IClaimsTranslator‎&lt;T‎&gt;" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/gmc/Documents/GitHub/eMarketSoft/src/Libraries/Soft.Services/Authentication/External/IClaimsTranslator.cs StartLineNumber=9 StartCharacterOffset=4 EndLineNumber=9 EndCharacterOffset=4)" UseManualLocation="True" />
+    <Node Id="(@1 @2 Type=AddressClaims)" Category="CodeSchema_Class" Bounds="-161.648467934093,555.006723451325,138.29,25" CodeSchemaProperty_IsPublic="True" CommonLabel="AddressClaims" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="AddressClaims" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/gmc/Documents/GitHub/eMarketSoft/src/Libraries/Soft.Services/Authentication/External/UserClaims.cs StartLineNumber=103 StartCharacterOffset=4 EndLineNumber=103 EndCharacterOffset=4)" UseManualLocation="True" />
+    <Node Id="(@1 @2 Type=BirthDateClaims)" Category="CodeSchema_Class" Bounds="-19.5802789174753,323.527095908781,145.46,25" CodeSchemaProperty_IsPublic="True" CommonLabel="BirthDateClaims" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="BirthDateClaims" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/gmc/Documents/GitHub/eMarketSoft/src/Libraries/Soft.Services/Authentication/External/UserClaims.cs StartLineNumber=175 StartCharacterOffset=4 EndLineNumber=175 EndCharacterOffset=4)" />
+    <Node Id="(@1 @2 Type=CompanyClaims)" Category="CodeSchema_Class" Bounds="-50.1671140088999,268.526995908781,146.333333333333,25" CodeSchemaProperty_IsPublic="True" CommonLabel="CompanyClaims" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="CompanyClaims" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/gmc/Documents/GitHub/eMarketSoft/src/Libraries/Soft.Services/Authentication/External/UserClaims.cs StartLineNumber=93 StartCharacterOffset=4 EndLineNumber=93 EndCharacterOffset=4)" UseManualLocation="True" />
+    <Node Id="(@1 @2 Type=IExternalProviderAuthorizer)" Category="CodeSchema_Interface" Bounds="866.687192789378,206.749909152691,205.556666666667,25" CodeSchemaProperty_IsPublic="True" CommonLabel="IExternalProviderAuthorizer" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Interface" Label="IExternalProviderAuthorizer" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/gmc/Documents/GitHub/eMarketSoft/src/Libraries/Soft.Services/Authentication/External/IExternalProviderAuthorizer.cs StartLineNumber=8 StartCharacterOffset=4 EndLineNumber=8 EndCharacterOffset=4)" UseManualLocation="True" />
+    <Node Id="(@1 @2 Type=ImageClaims)" Category="CodeSchema_Class" Bounds="-115.466607276903,205.078672953165,128.76,25" CodeSchemaProperty_IsPublic="True" CommonLabel="ImageClaims" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="ImageClaims" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/gmc/Documents/GitHub/eMarketSoft/src/Libraries/Soft.Services/Authentication/External/UserClaims.cs StartLineNumber=26 StartCharacterOffset=4 EndLineNumber=26 EndCharacterOffset=4)" UseManualLocation="True" />
+    <Node Id="(@1 @2 Type=InstantMessagingClaims)" Category="CodeSchema_Class" Bounds="-143.293186392472,610.006823451325,189.063333333333,25" CodeSchemaProperty_IsPublic="True" CommonLabel="InstantMessagingClaims" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="InstantMessagingClaims" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/gmc/Documents/GitHub/eMarketSoft/src/Libraries/Soft.Services/Authentication/External/UserClaims.cs StartLineNumber=79 StartCharacterOffset=4 EndLineNumber=79 EndCharacterOffset=4)" UseManualLocation="True" />
+    <Node Id="(@1 @2 Type=OpenAuthenticationExtensions)" Category="CodeSchema_Class" Bounds="486.919201941201,569.831488421997,223.660000000001,25" CodeSchemaProperty_IsAbstract="True" CodeSchemaProperty_IsFinal="True" CodeSchemaProperty_IsPublic="True" CommonLabel="OpenAuthenticationExtensions" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="OpenAuthenticationExtensions" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/gmc/Documents/GitHub/eMarketSoft/src/Libraries/Soft.Services/Authentication/External/OpenAuthentificationExtensions.cs StartLineNumber=8 StartCharacterOffset=4 EndLineNumber=8 EndCharacterOffset=4)" UseManualLocation="True" />
+    <Node Id="(@1 @2 Type=PersonClaims)" Category="CodeSchema_Class" Bounds="-21.8304712686729,378.527195908781,131.863333333333,25" CodeSchemaProperty_IsPublic="True" CommonLabel="PersonClaims" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="PersonClaims" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/gmc/Documents/GitHub/eMarketSoft/src/Libraries/Soft.Services/Authentication/External/UserClaims.cs StartLineNumber=122 StartCharacterOffset=4 EndLineNumber=122 EndCharacterOffset=4)" UseManualLocation="True" />
+    <Node Id="(@1 @2 Type=PreferenceClaims)" Category="CodeSchema_Class" Bounds="124.610165372714,148.92776975932,152.043333333333,25" CodeSchemaProperty_IsPublic="True" CommonLabel="PreferenceClaims" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="PreferenceClaims" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/gmc/Documents/GitHub/eMarketSoft/src/Libraries/Soft.Services/Authentication/External/UserClaims.cs StartLineNumber=148 StartCharacterOffset=4 EndLineNumber=148 EndCharacterOffset=4)" UseManualLocation="True" />
+    <Node Id="(@1 @2 Type=TelephoneClaims)" Category="CodeSchema_Class" Bounds="-178.183410652293,435.17355460077,151.466666666667,25" CodeSchemaProperty_IsPublic="True" CommonLabel="TelephoneClaims" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="TelephoneClaims" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/gmc/Documents/GitHub/eMarketSoft/src/Libraries/Soft.Services/Authentication/External/UserClaims.cs StartLineNumber=66 StartCharacterOffset=4 EndLineNumber=66 EndCharacterOffset=4)" UseManualLocation="True" />
+    <Node Id="(@1 @2 Type=WebClaims)" Category="CodeSchema_Class" Bounds="-145.576048662636,499.291342304623,120.32,25" CodeSchemaProperty_IsPublic="True" CommonLabel="WebClaims" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="WebClaims" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/gmc/Documents/GitHub/eMarketSoft/src/Libraries/Soft.Services/Authentication/External/UserClaims.cs StartLineNumber=52 StartCharacterOffset=4 EndLineNumber=52 EndCharacterOffset=4)" UseManualLocation="True" />
+    <Node Id="(@1 Namespace=Soft.Services.Authentication Type=FormsAuthenticationService)" Category="CodeSchema_Class" Bounds="781.267029941082,540.592987015512,208.66,25" CodeSchemaProperty_IsPublic="True" CommonLabel="FormsAuthenticationService" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="FormsAuthenticationService" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/gmc/Documents/GitHub/eMarketSoft/src/Libraries/Soft.Services/Authentication/FormsAuthenticationService.cs StartLineNumber=11 StartCharacterOffset=4 EndLineNumber=11 EndCharacterOffset=4)" UseManualLocation="True" />
+    <Node Id="@10" Category="CodeSchema_Interface" Bounds="675.223859456045,197.420353391607,161.463333333333,25" CodeSchemaProperty_IsPublic="True" CommonLabel="IExternalAuthorizer" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Interface" Label="IExternalAuthorizer" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/gmc/Documents/GitHub/eMarketSoft/src/Libraries/Soft.Services/Authentication/External/IExternalAuthorizer.cs StartLineNumber=8 StartCharacterOffset=4 EndLineNumber=8 EndCharacterOffset=4)" UseManualLocation="True" />
+    <Node Id="@11" Category="CodeSchema_Interface" Bounds="440.543689273911,380.41907528216,208.526666666667,25" CodeSchemaProperty_IsPublic="True" CommonLabel="IOpenAuthenticationService" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Interface" Label="IOpenAuthenticationService" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/gmc/Documents/GitHub/eMarketSoft/src/Libraries/Soft.Services/Authentication/External/IOpenAuthenticationService.cs StartLineNumber=10 StartCharacterOffset=4 EndLineNumber=10 EndCharacterOffset=4)" UseManualLocation="True" />
+    <Node Id="@12" Category="CodeSchema_Class" Bounds="43.2933927230965,213.526895908781,128.913333333333,25" CodeSchemaProperty_IsPublic="True" CommonLabel="MediaClaims" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="MediaClaims" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/gmc/Documents/GitHub/eMarketSoft/src/Libraries/Soft.Services/Authentication/External/UserClaims.cs StartLineNumber=39 StartCharacterOffset=4 EndLineNumber=39 EndCharacterOffset=4)" UseManualLocation="True" />
+    <Node Id="@13" Category="CodeSchema_Class" Bounds="128.093704988006,437.437994791337,127.476666666667,25" CodeSchemaProperty_IsPublic="True" CommonLabel="NameClaims" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="NameClaims" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/gmc/Documents/GitHub/eMarketSoft/src/Libraries/Soft.Services/Authentication/External/UserClaims.cs StartLineNumber=132 StartCharacterOffset=4 EndLineNumber=132 EndCharacterOffset=4)" UseManualLocation="True" />
+    <Node Id="@14" Category="CodeSchema_Class" Bounds="307.797510533919,261.563498548962,227.366666666667,25" CodeSchemaProperty_IsAbstract="True" CodeSchemaProperty_IsPublic="True" CommonLabel="OpenAuthenticationParameters" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="OpenAuthenticationParameters" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/gmc/Documents/GitHub/eMarketSoft/src/Libraries/Soft.Services/Authentication/External/OpenAuthenticationParameters.cs StartLineNumber=10 StartCharacterOffset=4 EndLineNumber=10 EndCharacterOffset=4)" UseManualLocation="True" />
+    <Node Id="@15" Category="CodeSchema_Class" Bounds="340.395462388705,437.483150154536,205.333333333333,25" CodeSchemaProperty_IsPublic="True" CommonLabel="OpenAuthenticationService" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="OpenAuthenticationService" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/gmc/Documents/GitHub/eMarketSoft/src/Libraries/Soft.Services/Authentication/External/OpenAuthenticationService.cs StartLineNumber=15 StartCharacterOffset=4 EndLineNumber=15 EndCharacterOffset=4)" UseManualLocation="True" />
+    <Node Id="@16" Category="CodeSchema_Enum" Bounds="876.1460663682,371.750209152691,196.533333333334,25" CodeSchemaProperty_IsFinal="True" CodeSchemaProperty_IsPublic="True" CommonLabel="OpenAuthenticationStatus" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Enum" Label="OpenAuthenticationStatus" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/gmc/Documents/GitHub/eMarketSoft/src/Libraries/Soft.Services/Authentication/External/OpenAuthenticationStatus.cs StartLineNumber=8 StartCharacterOffset=4 EndLineNumber=8 EndCharacterOffset=4)" UseManualLocation="True" />
+    <Node Id="@17" Category="CodeSchema_Struct" Bounds="202.426757818896,506.005752816528,158.43,25" CodeSchemaProperty_IsFinal="True" CodeSchemaProperty_IsPublic="True" CommonLabel="RegistrationDetails" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Struct" Label="RegistrationDetails" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/gmc/Documents/GitHub/eMarketSoft/src/Libraries/Soft.Services/Authentication/External/RegistrationDetails.cs StartLineNumber=8 StartCharacterOffset=4 EndLineNumber=8 EndCharacterOffset=4)" UseManualLocation="True" />
+    <Node Id="@18" Category="CodeSchema_Class" Bounds="155.879721082525,315.236027880636,119.566666666667,25" CodeSchemaProperty_IsPublic="True" CommonLabel="UserClaims" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="UserClaims" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/gmc/Documents/GitHub/eMarketSoft/src/Libraries/Soft.Services/Authentication/External/UserClaims.cs StartLineNumber=9 StartCharacterOffset=4 EndLineNumber=9 EndCharacterOffset=4)" />
+    <Node Id="@3" Category="CodeSchema_Class" Bounds="804.26567766358,316.750109152691,165.133333333333,25" CodeSchemaProperty_IsPublic="True" CommonLabel="AuthorizationResult" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="AuthorizationResult" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/gmc/Documents/GitHub/eMarketSoft/src/Libraries/Soft.Services/Authentication/External/AuthorizationResult.cs StartLineNumber=9 StartCharacterOffset=4 EndLineNumber=9 EndCharacterOffset=4)" UseManualLocation="True" />
+    <Node Id="@4" Category="CodeSchema_Class" Bounds="947.668936215965,261.750009152691,139.09,25" CodeSchemaProperty_IsPublic="True" CommonLabel="AuthorizeState" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="AuthorizeState" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/gmc/Documents/GitHub/eMarketSoft/src/Libraries/Soft.Services/Authentication/External/AuthorizeState.cs StartLineNumber=10 StartCharacterOffset=4 EndLineNumber=10 EndCharacterOffset=4)" UseManualLocation="True" />
+    <Node Id="@5" Category="CodeSchema_Class" Bounds="4.74395133736439,495.670784256911,136.813333333333,24.9999999999999" CodeSchemaProperty_IsPublic="True" CommonLabel="ContactClaims" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="ContactClaims" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/gmc/Documents/GitHub/eMarketSoft/src/Libraries/Soft.Services/Authentication/External/UserClaims.cs StartLineNumber=159 StartCharacterOffset=4 EndLineNumber=159 EndCharacterOffset=4)" UseManualLocation="True" />
+    <Node Id="@6" Category="CodeSchema_Class" Bounds="717.549692859022,426.750309152691,158.27,25" CodeSchemaProperty_IsPublic="True" CommonLabel="ExternalAuthorizer" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="ExternalAuthorizer" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/gmc/Documents/GitHub/eMarketSoft/src/Libraries/Soft.Services/Authentication/External/ExternalAuthorizer.cs StartLineNumber=18 StartCharacterOffset=4 EndLineNumber=18 EndCharacterOffset=4)" UseManualLocation="True" />
+    <Node Id="@7" Category="CodeSchema_Class" Bounds="576.993849539829,279.877037797143,193.476666666666,25" CodeSchemaProperty_IsAbstract="True" CodeSchemaProperty_IsFinal="True" CodeSchemaProperty_IsPublic="True" CommonLabel="ExternalAuthorizerHelper" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Class" Label="ExternalAuthorizerHelper" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/gmc/Documents/GitHub/eMarketSoft/src/Libraries/Soft.Services/Authentication/External/ExternalAuthorizerHelper.cs StartLineNumber=11 StartCharacterOffset=4 EndLineNumber=11 EndCharacterOffset=4)" UseManualLocation="True" />
+    <Node Id="@8" Category="CodeSchema_Interface" Bounds="791.660145834093,481.750409152691,179.36,25" CodeSchemaProperty_IsPublic="True" CommonLabel="IAuthenticationService" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Interface" Label="IAuthenticationService" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/gmc/Documents/GitHub/eMarketSoft/src/Libraries/Soft.Services/Authentication/IAuthenticationService.cs StartLineNumber=7 StartCharacterOffset=4 EndLineNumber=7 EndCharacterOffset=4)" UseManualLocation="True" />
+    <Node Id="@9" Category="CodeSchema_Interface" Bounds="480.76844260196,514.831388421997,225.966666666667,25" CodeSchemaProperty_IsPublic="True" CommonLabel="IExternalAuthenticationMethod" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Icon="CodeSchema_Interface" Label="IExternalAuthenticationMethod" Language="{B5E9BD34-6D3E-4B5D-925E-8A43B79820B4}" SourceLocation="(Assembly=file:///C:/Users/gmc/Documents/GitHub/eMarketSoft/src/Libraries/Soft.Services/Authentication/External/IExternalAuthenticationMethod.cs StartLineNumber=10 StartCharacterOffset=4 EndLineNumber=10 EndCharacterOffset=4)" UseManualLocation="True" />
+  </Nodes>
+  <Links>
+    <Link Source="(@1 @2 Type=(Name=IClaimsTranslator GenericParameterCount=1))" Target="@18" Category="CodeSchema_ReturnTypeLink" Bounds="235.619563730806,228.92786975932,85.8074522990672,80.1641332772278" IsSourceVirtualized="True" Weight="1" />
+    <Link Source="(@1 @2 Type=IExternalProviderAuthorizer)" Target="@4" Category="CodeSchema_ReturnTypeLink" Bounds="980.31741777683,231.749909152691,20.1444919457956,23.2038945234851" IsSourceVirtualized="True" Weight="1" />
+    <Link Source="(@1 @2 Type=OpenAuthenticationExtensions)" Target="@9" Category="References" Bounds="595.701956720108,548.79446522515,1.91146864843518,21.0370231968468" IsSourceVirtualized="True" Weight="1" />
+    <Link Source="(@1 Namespace=Soft.Services.Authentication Type=FormsAuthenticationService)" Target="@8" Category="Implements" Bounds="882.929913702115,516.225646722423,1.76282119836867,24.3673402930889" Weight="1" />
+    <Link Source="@10" Target="@14" Category="References" Bounds="495.501076578019,222.420353391607,195.273150468437,37.4480781366425" IsSourceVirtualized="True" Weight="1" />
+    <Link Source="@10" Target="@3" Category="CodeSchema_ReturnTypeLink" Bounds="769.665101049435,222.420353391607,96.80708832887,88.2659462878097" IsSourceVirtualized="True" Weight="1" />
+    <Link Source="@11" Target="@14" Category="References" Bounds="440.9313493391,292.808918777076,90.9055015974423,87.6101565050838" IsSourceVirtualized="True" Weight="4" />
+    <Link Source="@11" Target="@9" Category="References" Bounds="549.358758994402,405.41907528216,36.7618397012176,100.95553810228" IsSourceVirtualized="True" Weight="3">
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@12" Target="(@1 @2 Type=ImageClaims)" Category="References" Bounds="22.2806892797632,221.480941188637,21.0127034433333,1.11762609550379" IsSourceVirtualized="True" Weight="4">
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@14" Target="@18" Category="References" Bounds="272.305496630986,286.563498548962,101.241657503777,26.401487677245" IsSourceVirtualized="True" Weight="2" />
+    <Link Source="@15" Target="@11" Category="Implements" Bounds="465.349551960988,410.066195825877,48.8842604725428,27.4169543286583" Weight="1" />
+    <Link Source="@15" Target="@14" Category="References" Bounds="424.110182677258,295.496530149127,17.4184845824053,141.986620005409" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="13">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@15" Target="@18" Category="References" Bounds="246.842167953572,344.497560050805,172.967974632742,92.9855901037312" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="9">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@15" Target="@5" Category="CodeSchema_Calls" Bounds="149.377244150372,462.483150154536,214.219652137391,33.6970717690876" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="2" />
+    <Link Source="@15" Target="@9" Category="References" Bounds="467.414598202577,462.483150154536,93.9778944915583,48.2383808411188" IsSourceVirtualized="True" Weight="11">
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@17" Target="@13" Category="CodeSchema_Calls" Bounds="215.35793439354,467.899502278824,49.9113835782342,38.1062505377044" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="2" />
+    <Link Source="@17" Target="@14" Category="References" Bounds="288.792684244616,294.375513538965,121.068181642507,211.630239277564" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="3">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@17" Target="@18" Category="References" Bounds="223.405838012695,348.677520751953,54.2488555908203,157.328247070313" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="9">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@17" Target="@5" Category="CodeSchema_Calls" Bounds="150.546247540644,512.007308910299,51.880510278252,2.57173251131314" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="2" />
+    <Link Source="@18" Target="(@1 @2 Type=BirthDateClaims)" Category="References" Bounds="134.868031239118,330.786040291613,21.0116898434069,1.07196958123205" IsSourceVirtualized="True" Weight="4">
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@18" Target="(@1 @2 Type=CompanyClaims)" Category="References" Bounds="83.3056632144127,295.64751313381,80.7979032328819,19.5885147468264" IsSourceVirtualized="True" Weight="4">
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@18" Target="(@1 @2 Type=PersonClaims)" Category="References" Bounds="86.4283906338007,340.236027880636,95.351212037737,35.176172707124" IsSourceVirtualized="True" Weight="4">
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@18" Target="(@1 @2 Type=PreferenceClaims)" Category="References" Bounds="202.571736298711,182.891233622132,11.9615469210054,132.344794258505" IsSourceVirtualized="True" Weight="4">
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@18" Target="@12" Category="References" Bounds="127.561948676372,244.699809783298,74.8386541613969,70.5362180973381" IsSourceVirtualized="True" Weight="4">
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@18" Target="@13" Category="References" Bounds="195.992374465197,340.236027880636,17.2330129579593,88.3683713236445" IsSourceVirtualized="True" Weight="4">
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@18" Target="@5" Category="References" Bounds="86.611701965332,340.236022949219,119.026222229004,148.409820556641" IsSourceVirtualized="True" Weight="4">
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@3" Target="@16" Category="References" Bounds="906.736941936574,341.750109152691,40.1494878495439,25.2137022835253" IsSourceVirtualized="True" Weight="5">
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@4" Target="@16" Category="References" Bounds="982.540059950585,286.750009152691,29.8101120198256,76.6127594668037" IsSourceVirtualized="True" Weight="5">
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@4" Target="@3" Category="References" Bounds="924.756853426051,286.750009152691,62.8249566924798,26.5020456538894" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="3">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@5" Target="(@1 @2 Type=AddressClaims)" Category="References" Bounds="-49.1331072234694,520.670784256911,87.3862229322728,31.3010305841512" IsSourceVirtualized="True" Weight="12">
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@5" Target="(@1 @2 Type=InstantMessagingClaims)" Category="References" Bounds="-28.8685802853123,520.670784256911,88.6909272353517,83.179325056559" IsSourceVirtualized="True" Weight="4">
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@5" Target="(@1 @2 Type=TelephoneClaims)" Category="References" Bounds="-57.6581066098105,463.105100209165,94.525927797962,32.5656840477466" IsSourceVirtualized="True" Weight="4">
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@5" Target="(@1 @2 Type=WebClaims)" Category="References" Bounds="-16.2583938091294,509.732715983948,21.0023451464938,0.4795472550407" IsSourceVirtualized="True" Weight="4">
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@6" Target="@10" Category="Implements" Bounds="763.322570800781,231.797088623047,31.3519287109375,194.953216552734" Weight="1" />
+    <Link Source="@6" Target="@11" Category="References" Bounds="621.614210380466,407.047250185881,107.114794379564,19.7030589668096" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="5">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@6" Target="@14" Category="References" Bounds="458.11028158212,290.189932237172,310.182022712367,136.560376915518" IsSourceVirtualized="True" Weight="1" />
+    <Link Source="@6" Target="@17" Category="CodeSchema_Calls" Bounds="367.286173882814,451.050792597806,352.712863739157,54.2758915805958" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="8" />
+    <Link Source="@6" Target="@3" Category="CodeSchema_Calls" Bounds="806.928725537056,348.711148344169,63.9548570791105,78.0391608085221" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="13">
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@6" Target="@7" Category="CodeSchema_Calls" Bounds="689.973471076065,311.778114925726,96.2470552219579,114.972194226965" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="4" />
+    <Link Source="@6" Target="@8" Category="References" Bounds="815.924533553646,451.750309152691,38.6287223298044,25.0968309346489" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="4">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@7" Target="@14" Category="References" Bounds="544.084080205506,282.964538240101,32.909769334323,2.38926126112091" IsSourceVirtualized="True" Weight="2">
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+  </Links>
+  <Categories>
+    <Category Id="CodeSchema_Calls" Label="Calls" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Called By" OutgoingActionLabel="Calls" />
+    <Category Id="CodeSchema_Class" Label="Class" BasedOn="CodeSchema_Type" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Member" Icon="CodeSchema_Class" NavigationActionLabel="Classes" />
+    <Category Id="CodeSchema_Enum" Label="Enum" BasedOn="CodeSchema_Type" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Member" Icon="CodeSchema_Enum" NavigationActionLabel="Enums" />
+    <Category Id="CodeSchema_Interface" Label="Interface" BasedOn="CodeSchema_Type" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Member" Icon="CodeSchema_Interface" NavigationActionLabel="Interfaces" />
+    <Category Id="CodeSchema_ReturnTypeLink" Label="Return" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Return types" OutgoingActionLabel="Return types" />
+    <Category Id="CodeSchema_Struct" Label="Struct" BasedOn="CodeSchema_Type" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Member" Icon="CodeSchema_Struct" NavigationActionLabel="Structs" />
+    <Category Id="CodeSchema_Type" Label="Type" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Member" Icon="CodeSchema_Class" NavigationActionLabel="Types" />
+    <Category Id="Implements" Label="Implements" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Implemented by" OutgoingActionLabel="Implements" />
+    <Category Id="References" Label="References" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Referenced By" OutgoingActionLabel="References" />
+  </Categories>
+  <Properties>
+    <Property Id="Bounds" DataType="System.Windows.Rect" />
+    <Property Id="CanBeDataDriven" Label="CanBeDataDriven" Description="CanBeDataDriven" DataType="System.Boolean" />
+    <Property Id="CanLinkedNodesBeDataDriven" Label="CanLinkedNodesBeDataDriven" Description="CanLinkedNodesBeDataDriven" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsAbstract" Label="Is Abstract" Description="Flag to indicate member is 'Abstract' does not provide a full implementation" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsFinal" Label="Is Final" Description="Flag to indicate the member is 'Final' and cannot be derived from" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_IsPublic" Label="Is Public" Description="Flag to indicate the scope is Public" DataType="System.Boolean" />
+    <Property Id="CommonLabel" DataType="System.String" />
+    <Property Id="DataVirtualized" Label="Data Virtualized" Description="If true, the graph can contain nodes and links that represent data for virtualized nodes/links (i.e. not actually created in the graph)." DataType="System.Boolean" />
+    <Property Id="DefaultAction" Label="DefaultAction" Description="DefaultAction" DataType="System.String" />
+    <Property Id="DelayedChildNodesState" Label="Delayed Child Nodes State" Description="Unspecified if the delayed child nodes state is not specified. NotFetched if the group contains child nodes that are not fetched into the graph yet. Fetched if the group has all its delayed child nodes already fetched." DataType="Microsoft.VisualStudio.GraphModel.DelayedDataState" />
+    <Property Id="DelayedCrossGroupLinksState" Label="Delayed Cross-Group Links State" Description="Unspecified if the delayed cross-group links state is not specified. NotFetched if delayed cross-group links on this node are not fetched into the graph yet. Fetched if all delayed cross-group links have already fetched." DataType="Microsoft.VisualStudio.GraphModel.DelayedDataState" />
+    <Property Id="Expression" DataType="System.String" />
+    <Property Id="Group" Label="Group" Description="Display the node as a group" DataType="Microsoft.VisualStudio.GraphModel.GraphGroupStyle" />
+    <Property Id="GroupLabel" DataType="System.String" />
+    <Property Id="Icon" Label="Icon" Description="Icon" DataType="System.String" />
+    <Property Id="IncomingActionLabel" Label="IncomingActionLabel" Description="IncomingActionLabel" DataType="System.String" />
+    <Property Id="IsEnabled" DataType="System.Boolean" />
+    <Property Id="IsSourceVirtualized" Label="Link Source Virtualized" Description="If true, the link source end contains data for virtualized nodes/links (i.e. not actually created in the graph)." DataType="System.Boolean" />
+    <Property Id="IsTargetVirtualized" Label="Link Target Virtualized" Description="If true, the link target end contains data for virtualized nodes/links (i.e. not actually created in the graph)." DataType="System.Boolean" />
+    <Property Id="Label" Label="Label" Description="Displayable label of an Annotatable object" DataType="System.String" />
+    <Property Id="Language" Label="Language" Description="Language" DataType="System.String" />
+    <Property Id="Layout" DataType="System.String" />
+    <Property Id="NavigationActionLabel" Label="NavigationActionLabel" Description="NavigationActionLabel" DataType="System.String" />
+    <Property Id="OutgoingActionLabel" Label="OutgoingActionLabel" Description="OutgoingActionLabel" DataType="System.String" />
+    <Property Id="SourceLocation" Label="Start Line Number" DataType="Microsoft.VisualStudio.GraphModel.CodeSchema.SourceLocation" />
+    <Property Id="TargetType" DataType="System.Type" />
+    <Property Id="UseManualLocation" DataType="System.Boolean" />
+    <Property Id="Value" DataType="System.String" />
+    <Property Id="ValueLabel" DataType="System.String" />
+    <Property Id="Visibility" Label="Visibility" Description="Defines whether a node in the graph is visible or not" DataType="System.Windows.Visibility" />
+    <Property Id="Weight" Label="Weight" Description="Weight" DataType="System.Double" />
+    <Property Id="ZoomLevel" DataType="System.String" />
+  </Properties>
+  <QualifiedNames>
+    <Name Id="Assembly" Label="Assembly" ValueType="Uri" />
+    <Name Id="GenericParameterCount" Label="Generic Parameter Count" ValueType="System.String" />
+    <Name Id="Name" Label="Name" ValueType="System.String" />
+    <Name Id="Namespace" Label="Namespace" ValueType="System.String" />
+    <Name Id="Type" Label="Type" ValueType="System.Object" />
+  </QualifiedNames>
+  <IdentifierAliases>
+    <Alias n="1" Uri="Assembly=$(5a9e34cf-de05-4742-a6ab-20d85c614ad9.OutputPathUri)" />
+    <Alias n="2" Id="Namespace=Soft.Services.Authentication.External" />
+    <Alias n="3" Id="(@1 @2 Type=AuthorizationResult)" />
+    <Alias n="4" Id="(@1 @2 Type=AuthorizeState)" />
+    <Alias n="5" Id="(@1 @2 Type=ContactClaims)" />
+    <Alias n="6" Id="(@1 @2 Type=ExternalAuthorizer)" />
+    <Alias n="7" Id="(@1 @2 Type=ExternalAuthorizerHelper)" />
+    <Alias n="8" Id="(@1 Namespace=Soft.Services.Authentication Type=IAuthenticationService)" />
+    <Alias n="9" Id="(@1 @2 Type=IExternalAuthenticationMethod)" />
+    <Alias n="10" Id="(@1 @2 Type=IExternalAuthorizer)" />
+    <Alias n="11" Id="(@1 @2 Type=IOpenAuthenticationService)" />
+    <Alias n="12" Id="(@1 @2 Type=MediaClaims)" />
+    <Alias n="13" Id="(@1 @2 Type=NameClaims)" />
+    <Alias n="14" Id="(@1 @2 Type=OpenAuthenticationParameters)" />
+    <Alias n="15" Id="(@1 @2 Type=OpenAuthenticationService)" />
+    <Alias n="16" Id="(@1 @2 Type=OpenAuthenticationStatus)" />
+    <Alias n="17" Id="(@1 @2 Type=RegistrationDetails)" />
+    <Alias n="18" Id="(@1 @2 Type=UserClaims)" />
+  </IdentifierAliases>
+  <Styles>
+    <Style TargetType="Node" GroupLabel="Results" ValueLabel="True">
+      <Condition Expression="HasCategory('QueryResult')" />
+      <Setter Property="Background" Value="#FFBCFFBE" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Assembly" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Assembly')" />
+      <Setter Property="Background" Value="#FF094167" />
+      <Setter Property="Stroke" Value="#FF094167" />
+      <Setter Property="Icon" Value="CodeSchema_Assembly" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Namespace" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Namespace')" />
+      <Setter Property="Background" Value="#FF0E619A" />
+      <Setter Property="Stroke" Value="#FF0E619A" />
+      <Setter Property="Icon" Value="CodeSchema_Namespace" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Interface" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Interface')" />
+      <Setter Property="Background" Value="#FF1382CE" />
+      <Setter Property="Stroke" Value="#FF1382CE" />
+      <Setter Property="Icon" Value="CodeSchema_Interface" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Struct" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Struct')" />
+      <Setter Property="Background" Value="#FF1382CE" />
+      <Setter Property="Stroke" Value="#FF1382CE" />
+      <Setter Property="Icon" Value="CodeSchema_Struct" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Enumeration" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Enum')" />
+      <Setter Property="Background" Value="#FF1382CE" />
+      <Setter Property="Stroke" Value="#FF1382CE" />
+      <Setter Property="Icon" Value="CodeSchema_Enum" />
+      <Setter Property="LayoutSettings" Value="List" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Delegate" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Delegate')" />
+      <Setter Property="Background" Value="#FF1382CE" />
+      <Setter Property="Stroke" Value="#FF1382CE" />
+      <Setter Property="Icon" Value="CodeSchema_Delegate" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Class" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Type')" />
+      <Setter Property="Background" Value="#FF1382CE" />
+      <Setter Property="Stroke" Value="#FF1382CE" />
+      <Setter Property="Icon" Value="CodeSchema_Class" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Property" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Property')" />
+      <Setter Property="Background" Value="#FFE0E0E0" />
+      <Setter Property="Stroke" Value="#FFE0E0E0" />
+      <Setter Property="Icon" Value="CodeSchema_Property" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Method" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Method') Or HasCategory('CodeSchema_CallStackUnresolvedMethod')" />
+      <Setter Property="Background" Value="#FFE0E0E0" />
+      <Setter Property="Stroke" Value="#FFE0E0E0" />
+      <Setter Property="Icon" Value="CodeSchema_Method" />
+      <Setter Property="LayoutSettings" Value="List" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Event" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Event')" />
+      <Setter Property="Background" Value="#FFE0E0E0" />
+      <Setter Property="Stroke" Value="#FFE0E0E0" />
+      <Setter Property="Icon" Value="CodeSchema_Event" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Field" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Field')" />
+      <Setter Property="Background" Value="#FFE0E0E0" />
+      <Setter Property="Stroke" Value="#FFE0E0E0" />
+      <Setter Property="Icon" Value="CodeSchema_Field" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Out Parameter" ValueLabel="Has category">
+      <Condition Expression="CodeSchemaProperty_IsOut = 'True'" />
+      <Setter Property="Icon" Value="CodeSchema_OutParameter" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Parameter" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Parameter')" />
+      <Setter Property="Icon" Value="CodeSchema_Parameter" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Local Variable" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_LocalExpression')" />
+      <Setter Property="Icon" Value="CodeSchema_LocalExpression" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Externals" ValueLabel="Has category">
+      <Condition Expression="HasCategory('Externals')" />
+      <Setter Property="Background" Value="#FF424242" />
+      <Setter Property="Stroke" Value="#FF424242" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Inherits From" ValueLabel="Has category">
+      <Condition Expression="HasCategory('InheritsFrom')" />
+      <Setter Property="Stroke" Value="#FF00A600" />
+      <Setter Property="StrokeDashArray" Value="2 0" />
+      <Setter Property="DrawArrow" Value="true" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Implements" ValueLabel="Has category">
+      <Condition Expression="HasCategory('Implements')" />
+      <Setter Property="Stroke" Value="#8000A600" />
+      <Setter Property="StrokeDashArray" Value="2 2" />
+      <Setter Property="DrawArrow" Value="true" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Calls" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Calls')" />
+      <Setter Property="Stroke" Value="#FFFF00FF" />
+      <Setter Property="StrokeDashArray" Value="2 0" />
+      <Setter Property="DrawArrow" Value="true" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Function Pointer" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_FunctionPointer')" />
+      <Setter Property="Stroke" Value="#FFFF00FF" />
+      <Setter Property="StrokeDashArray" Value="2 2" />
+      <Setter Property="DrawArrow" Value="true" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Field Reference" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_FieldReference')" />
+      <Setter Property="Stroke" Value="#FF00AEEF" />
+      <Setter Property="DrawArrow" Value="true" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Inherits From" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="HasCategory('InheritsFrom') And Target.HasCategory('CodeSchema_Class')" />
+      <Setter Property="TargetDecorator" Value="OpenArrow" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Implements" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="HasCategory('Implements') And Target.HasCategory('CodeSchema_Interface')" />
+      <Setter Property="TargetDecorator" Value="OpenArrow" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Field Read" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="Target.HasCategory('CodeSchema_Field') And HasCategory('CodeSchema_FieldRead')" />
+      <Setter Property="StrokeDashArray" Value="2 2" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Comment Link" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="Source.HasCategory('Comment')" />
+      <Setter Property="Stroke" Value="#FFE5C365" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Cursor Location Changed" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="IsCursorLocation" />
+      <Setter Property="IndicatorWest" Value="WestIndicator" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Disabled Breakpoint Location Changed" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="DisabledBreakpointCount" />
+      <Setter Property="IndicatorWest" Value="WestIndicator" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Enabled Breakpoint Location Changed" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="EnabledBreakpointCount" />
+      <Setter Property="IndicatorWest" Value="WestIndicator" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Instruction Pointer Location Changed" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="IsInstructionPointerLocation" />
+      <Setter Property="IndicatorWest" Value="WestIndicator" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Current Callstack Changed" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="IsCurrentCallstackFrame" />
+      <Setter Property="IndicatorWest" Value="WestIndicator" />
+    </Style>
+  </Styles>
+  <Paths>
+    <Path Id="5a9e34cf-de05-4742-a6ab-20d85c614ad9.OutputPathUri" Value="file:///C:/Users/gmc/Documents/GitHub/eMarketSoft/src/Libraries/Soft.Services/bin/Debug/Soft.Services.dll" />
+  </Paths>
+</DirectedGraph>

@@ -17,10 +17,10 @@ namespace Soft.Data.Extensions
             Func<DbEntityEntry<T>, DbPropertyValues> func) where T : BaseEntity
         {
             //Se optiene el contexto de base de datos
-            DbContext dbContext = CastOrThrow(context);
+            var dbContext = CastOrThrow(context);
 
             //Obtiene el objeto entity de seguimiento
-            DbEntityEntry<T> entry = GetEntityOrReturnNull(currentCopy, dbContext);
+            var entry = GetEntityOrReturnNull(currentCopy, dbContext);
 
             //La salida
             T output = null;

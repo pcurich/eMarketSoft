@@ -8,11 +8,11 @@ using Soft.Services.Events;
 namespace Soft.Services.Affiliates
 {
     /// <summary>
-    /// Affiliate service
+    ///  Implementacion de los servicios de afiliados
     /// </summary>
     public partial class AffiliateService : IAffiliateService
     {
-        #region Fields
+        #region Campos
 
         private readonly IRepository<Affiliate> _affiliateRepository;
         private readonly IEventPublisher _eventPublisher;
@@ -22,10 +22,10 @@ namespace Soft.Services.Affiliates
         #region Ctor
 
         /// <summary>
-        /// Ctor
+        /// Ctr
         /// </summary>
-        /// <param name="affiliateRepository">Affiliate repository</param>
-        /// <param name="eventPublisher">Event published</param>
+        /// <param name="affiliateRepository">Repositorio de un afiliado</param>
+        /// <param name="eventPublisher">Evento publicado</param>
         public AffiliateService(IRepository<Affiliate> affiliateRepository,
             IEventPublisher eventPublisher)
         {
@@ -36,24 +36,21 @@ namespace Soft.Services.Affiliates
         #endregion
 
         #region Methods
-        
+
         /// <summary>
-        /// Gets an affiliate by affiliate identifier
+        /// Obtiene un afiliado desde un id
         /// </summary>
-        /// <param name="affiliateId">Affiliate identifier</param>
-        /// <returns>Affiliate</returns>
+        /// <param name="affiliateId">Identificador del afiliado</param>
+        /// <returns>Afiliado</returns>
         public virtual Affiliate GetAffiliateById(int affiliateId)
         {
-            if (affiliateId == 0)
-                return null;
-            
-            return _affiliateRepository.GetById(affiliateId);
+            return affiliateId == 0 ? null : _affiliateRepository.GetById(affiliateId);
         }
 
         /// <summary>
-        /// Marks affiliate as deleted 
+        /// Marca a un afiliado para ser borrado
         /// </summary>
-        /// <param name="affiliate">Affiliate</param>
+        /// <param name="affiliate">Afiliado</param>
         public virtual void DeleteAffiliate(Affiliate affiliate)
         {
             if (affiliate == null)
@@ -64,12 +61,12 @@ namespace Soft.Services.Affiliates
         }
 
         /// <summary>
-        /// Gets all affiliates
+        /// Optiene todos los afiliados
         /// </summary>
-        /// <param name="showHidden">A value indicating whether to show hidden records</param>
-        /// <param name="pageIndex">Page index</param>
-        /// <param name="pageSize">Page size</param>
-        /// <returns>Affiliate collection</returns>
+        /// <param name="showHidden">Si se debe mostrar los registros activos</param>
+        /// <param name="pageIndex">Index de la pagina</param>
+        /// <param name="pageSize">Tamaño de la pagina</param>
+        /// <returns>Coleccion de afiliados</returns>
         public virtual IPagedList<Affiliate> GetAllAffiliates(int pageIndex, int pageSize, bool showHidden = false)
         {
             var query = _affiliateRepository.Table;
@@ -83,9 +80,9 @@ namespace Soft.Services.Affiliates
         }
 
         /// <summary>
-        /// Inserts an affiliate
+        /// Inserta un afiliado
         /// </summary>
-        /// <param name="affiliate">Affiliate</param>
+        /// <param name="affiliate">Afiliado</param>
         public virtual void InsertAffiliate(Affiliate affiliate)
         {
             if (affiliate == null)
@@ -93,14 +90,14 @@ namespace Soft.Services.Affiliates
 
             _affiliateRepository.Insert(affiliate);
 
-            //event notification
+            //notifica el evento
             _eventPublisher.EntityInserted(affiliate);
         }
 
         /// <summary>
-        /// Updates the affiliate
+        /// Actualiza un afiliado
         /// </summary>
-        /// <param name="affiliate">Affiliate</param>
+        /// <param name="affiliate">Afiliado</param>
         public virtual void UpdateAffiliate(Affiliate affiliate)
         {
             if (affiliate == null)
@@ -108,7 +105,7 @@ namespace Soft.Services.Affiliates
 
             _affiliateRepository.Update(affiliate);
 
-            //event notification
+            //notifica el evento
             _eventPublisher.EntityUpdated(affiliate);
         }
 

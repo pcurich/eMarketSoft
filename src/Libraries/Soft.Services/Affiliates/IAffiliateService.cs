@@ -4,42 +4,42 @@ using Soft.Core.Domain.Affiliates;
 namespace Soft.Services.Affiliates
 {
     /// <summary>
-    /// Affiliate service interface
+    /// Interfaz para los servicios de afiliados
     /// </summary>
     public partial interface IAffiliateService
     {
         /// <summary>
-        /// Gets an affiliate by affiliate identifier
+        /// Obtiene un afiliado desde un id
         /// </summary>
-        /// <param name="affiliateId">Affiliate identifier</param>
-        /// <returns>Affiliate</returns>
+        /// <param name="affiliateId">Identificador del afiliado</param>
+        /// <returns>Afiliado</returns>
         Affiliate GetAffiliateById(int affiliateId);
 
         /// <summary>
-        /// Marks affiliate as deleted 
+        /// Marca a un afiliado para ser borrado
         /// </summary>
-        /// <param name="affiliate">Affiliate</param>
+        /// <param name="affiliate">Afiliado</param>
         void DeleteAffiliate(Affiliate affiliate);
 
         /// <summary>
-        /// Gets all affiliates
+        /// Optiene todos los afiliados
         /// </summary>
-        /// <param name="showHidden">A value indicating whether to show hidden records</param>
-        /// <param name="pageIndex">Page index</param>
-        /// <param name="pageSize">Page size</param>
-        /// <returns>Affiliate collection</returns>
+        /// <param name="showHidden">Si se debe mostrar los registros activos</param>
+        /// <param name="pageIndex">Index de la pagina</param>
+        /// <param name="pageSize">Tamaño de la pagina</param>
+        /// <returns>Coleccion de afiliados</returns>
         IPagedList<Affiliate> GetAllAffiliates(int pageIndex, int pageSize, bool showHidden = false);
 
         /// <summary>
-        /// Inserts an affiliate
+        /// Inserta un afiliado
         /// </summary>
-        /// <param name="affiliate">Affiliate</param>
+        /// <param name="affiliate">Afiliado</param>
         void InsertAffiliate(Affiliate affiliate);
 
         /// <summary>
-        /// Updates the affiliate
+        /// Actualiza un afiliado
         /// </summary>
-        /// <param name="affiliate">Affiliate</param>
+        /// <param name="affiliate">Afiliado</param>
         void UpdateAffiliate(Affiliate affiliate);
         
     }

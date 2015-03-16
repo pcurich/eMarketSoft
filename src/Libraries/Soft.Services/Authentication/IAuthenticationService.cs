@@ -3,12 +3,26 @@ using Soft.Core.Domain.Customers;
 namespace Soft.Services.Authentication
 {
     /// <summary>
-    /// Authentication service interface
+    ///     Interfaz para la autentificacion del servicio
     /// </summary>
-    public partial interface IAuthenticationService 
+    public interface IAuthenticationService
     {
+        /// <summary>
+        ///     Ingreso
+        /// </summary>
+        /// <param name="customer">Cliente</param>
+        /// <param name="createPersistentCookie">Persistencia de cockies</param>
         void SignIn(Customer customer, bool createPersistentCookie);
+
+        /// <summary>
+        ///     Salida
+        /// </summary>
         void SignOut();
+
+        /// <summary>
+        ///     Cliente autentificado
+        /// </summary>
+        /// <returns></returns>
         Customer GetAuthenticatedCustomer();
     }
 }
