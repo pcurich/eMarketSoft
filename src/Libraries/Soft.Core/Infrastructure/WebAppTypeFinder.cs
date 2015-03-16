@@ -13,7 +13,7 @@ namespace Soft.Core.Infrastructure
     /// </summary>
     public class WebAppTypeFinder : AppDomainTypeFinder
     {
-        #region Campos
+        #region Propiedades
 
         private bool _binFolderAssembliesLoaded;
 

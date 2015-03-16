@@ -3,7 +3,7 @@ using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using NUnit.Framework;
 using Soft.Core;
-using Soft.Data.Ef;
+using Soft.Data.Entities;
 
 namespace Soft.Data.Test
 {

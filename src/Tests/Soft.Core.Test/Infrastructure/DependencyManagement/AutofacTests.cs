@@ -20,12 +20,10 @@ namespace Soft.Core.Test.Infrastructure.DependencyManagement
             rootBuilder.RegisterType<Foo1>().As<IFoo>();
             var rootContainer = rootBuilder.Build();
 
-            var scopeA = rootContainer.BeginLifetimeScope(
-                scopeBuilder => scopeBuilder.RegisterType<Foo2>().As<IFoo>());
+            var scopeA = rootContainer.BeginLifetimeScope(scopeBuilder => scopeBuilder.RegisterType<Foo2>().As<IFoo>());
             var arrayA = scopeA.Resolve<IEnumerable<IFoo>>().ToArray();
 
-            var scopeB = rootContainer.BeginLifetimeScope(
-                scopeBuilder => scopeBuilder.RegisterType<Foo3>().As<IFoo>());
+            var scopeB = rootContainer.BeginLifetimeScope(scopeBuilder => scopeBuilder.RegisterType<Foo3>().As<IFoo>());
             var arrayB = scopeB.Resolve<IEnumerable<IFoo>>().ToArray();
 
             Assert.That(arrayA.Count(), Is.EqualTo(2));

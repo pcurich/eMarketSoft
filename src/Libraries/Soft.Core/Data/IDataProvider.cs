@@ -5,7 +5,7 @@ namespace Soft.Core.Data
     /// <summary>
     /// Proveedor de la data
     /// </summary>
-    public interface IDataProvider
+    public partial interface IDataProvider
     {
         /// <summary>
         /// Inicializa las conexiones

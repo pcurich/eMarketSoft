@@ -7,13 +7,17 @@ namespace Soft.Data.Initializers
     /// <summary>
     /// Una implementacion de IDatabaseInitializer que recreara y opcionalmente
     /// poblara la base de datos solo si la base de datos no existe 
-    /// Para poblar la base de datos, cree una reribada y sobreescriba el metodo seed
+    /// Para poblar la base de datos, cree una deribada y sobreescriba el metodo seed
     /// </summary>
     /// <typeparam name="TContext">El tipo del contexto</typeparam>
     public class CreateCeDatabaseIfNotExists<TContext> : SqlCeInitializer<TContext> where TContext : DbContext
     {
         #region Estrategia de implementacion
 
+        /// <summary>
+        ///     Ejecuta la estrategia para inicializar la base de datos para el contexto dado
+        /// </summary>
+        /// <param name="context">El contexto</param>
         public override void InitializeDatabase(TContext context)
         {
             if (context == null)

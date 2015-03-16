@@ -4,7 +4,7 @@ using Soft.Core;
 using Soft.Core.Data;
 using Soft.Core.Domain.Messages;
 using Soft.Data;
-using Soft.Data.Ef;
+using Soft.Data.Entities;
 using Soft.Data.Extensions;
 using Soft.Services.Events;
 

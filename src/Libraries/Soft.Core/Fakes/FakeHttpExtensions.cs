@@ -3,7 +3,7 @@ using System.Web;
 
 namespace Soft.Core.Fakes
 {
-    public static class Extensions
+    public static class FakeHttpExtensions
     {
         /// <summary>
         /// Indica si este contexto es una imitacion

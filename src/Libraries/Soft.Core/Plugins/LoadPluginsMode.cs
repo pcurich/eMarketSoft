@@ -1,5 +1,8 @@
 ﻿namespace Soft.Core.Plugins
 {
+    /// <summary>
+    /// Modo de carga de los plugins
+    /// </summary>
     public enum LoadPluginsMode
     {
         /// <summary>

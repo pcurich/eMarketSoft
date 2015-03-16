@@ -2,7 +2,7 @@
 using Autofac;
 using Soft.Core.Data;
 using Soft.Core.Infrastructure.DependencyManagement;
-using Soft.Data.Ef;
+using Soft.Data.Entities;
 
 namespace Soft.Web.Framework.Mvc
 {

@@ -18,6 +18,9 @@ namespace Soft.Core.Data
             return _databaseIsInstalled.Value;
         }
 
+        /// <summary>
+        /// Reinicia el cache para que vuelva a crear un nuevo objeto <see cref="DataSettingsManager"/>
+        /// </summary>
         public static void ResetCache()
         {
             _databaseIsInstalled = null;

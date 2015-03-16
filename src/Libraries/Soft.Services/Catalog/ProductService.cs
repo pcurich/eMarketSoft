@@ -14,7 +14,7 @@ using Soft.Core.Domain.Security;
 using Soft.Core.Domain.Shipping;
 using Soft.Core.Domain.Stores;
 using Soft.Data;
-using Soft.Data.Ef;
+using Soft.Data.Entities;
 using Soft.Services.Events;
 using Soft.Services.Localization;
 using Soft.Services.Messages;

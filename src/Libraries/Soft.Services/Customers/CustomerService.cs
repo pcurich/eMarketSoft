@@ -18,7 +18,7 @@ using Soft.Core.Domain.Orders;
 using Soft.Core.Domain.Polls;
 using Soft.Core.Domain.Shipping;
 using Soft.Data;
-using Soft.Data.Ef;
+using Soft.Data.Entities;
 using Soft.Services.Common;
 using Soft.Services.Events;
 

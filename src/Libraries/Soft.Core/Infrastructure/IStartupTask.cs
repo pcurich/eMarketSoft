@@ -1,7 +1,8 @@
 ﻿namespace Soft.Core.Infrastructure
 {
     /// <summary>
-    /// Interfaz que debe ejecutarse para cada tarea creada al momento del run
+    /// Interfaz que debe ejecutarse para cada tarea creada al momento 
+    /// de la ejecucion
     /// </summary>
     public interface IStartupTask
     {

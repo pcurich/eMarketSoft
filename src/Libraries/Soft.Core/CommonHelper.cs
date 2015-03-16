@@ -2,25 +2,26 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Globalization;
-using System.Reflection;
+using System.Security;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Web;
 using Soft.Core.ComponentModel;
+using Soft.Core.Domain.Shipping;
 
 namespace Soft.Core
 {
     /// <summary>
-    /// Representa ayudas comunes
+    ///     Representa ayudas comunes
     /// </summary>
-    public partial class CommonHelper
+    public class CommonHelper
     {
         private static AspNetHostingPermissionLevel? _trustLevel;
 
         /// <summary>
-        /// Asegura que el email este correcto o lanza una excepcion
+        ///     Asegura que el email este correcto o lanza una excepcion
         /// </summary>
         /// <param name="email">Email</param>
         /// <returns></returns>
@@ -39,8 +40,8 @@ namespace Soft.Core
         }
 
         /// <summary>
-        /// Encuentra el nivel de confianza de una aplicacion corriendo 
-        /// (http://blogs.msdn.com/dmitryr/archive/2007/01/23/finding-out-the-current-trust-level-in-asp-net.aspx)
+        ///     Encuentra el nivel de confianza de una aplicacion corriendo
+        ///     (http://blogs.msdn.com/dmitryr/archive/2007/01/23/finding-out-the-current-trust-level-in-asp-net.aspx)
         /// </summary>
         /// <returns>Nivel de confianza</returns>
         public static AspNetHostingPermissionLevel GetTrustLevel()
@@ -67,7 +68,7 @@ namespace Soft.Core
                     _trustLevel = trustLevel;
                     break; //we've set the highest permission we can
                 }
-                catch (System.Security.SecurityException)
+                catch (SecurityException)
                 {
                 }
             }
@@ -75,7 +76,7 @@ namespace Soft.Core
         }
 
         /// <summary>
-        /// Setea una propiedad de un objeto a un valor
+        ///     Setea una propiedad de un objeto a un valor
         /// </summary>
         /// <param name="instance">El objeto cuya propiedad sera establecida</param>
         /// <param name="propertyName">Nombre de la propiedad a establecer</param>
@@ -85,8 +86,8 @@ namespace Soft.Core
             if (instance == null) throw new ArgumentNullException("instance");
             if (propertyName == null) throw new ArgumentNullException("propertyName");
 
-            Type instanceType = instance.GetType();
-            PropertyInfo pi = instanceType.GetProperty(propertyName);
+            var instanceType = instance.GetType();
+            var pi = instanceType.GetProperty(propertyName);
 
             if (pi == null)
                 throw new SoftException("No propiedad '{0}' encontrada en la instancia de tipo '{1}'.", propertyName,
@@ -113,16 +114,16 @@ namespace Soft.Core
                 return new GenericListTypeConverter<decimal>();
             if (type == typeof (List<string>))
                 return new GenericListTypeConverter<string>();
-            //if (type == typeof (ShippingOption))
-            //    return new ShippingOptionTypeConverter();
-            //if (type == typeof (List<ShippingOption>) || type == typeof (IList<ShippingOption>))
-            //    return new ShippingOptionListTypeConverter();
+            if (type == typeof (ShippingOption))
+                return new ShippingOptionTypeConverter();
+            if (type == typeof (List<ShippingOption>) || type == typeof (IList<ShippingOption>))
+                return new ShippingOptionListTypeConverter();
 
             return TypeDescriptor.GetConverter(type);
         }
 
         /// <summary>
-        /// Convierte un valor a un tipo destinatario
+        ///     Convierte un valor a un tipo destinatario
         /// </summary>
         /// <param name="value">Valor a convertir</param>
         /// <param name="destinationType">El tipo al que sera convertido el valor</param>
@@ -133,7 +134,7 @@ namespace Soft.Core
         }
 
         /// <summary>
-        /// Convierte un valor a un tipo destinatario
+        ///     Convierte un valor a un tipo destinatario
         /// </summary>
         /// <param name="value">Valor a convertir</param>
         /// <param name="destinationType">El tipo al que sera convertido el valor</param>
@@ -146,8 +147,8 @@ namespace Soft.Core
 
             var sourceType = value.GetType();
 
-            TypeConverter destinationConverter = GetSoftCustomTypeConverter(destinationType);
-            TypeConverter sourceConverter = GetSoftCustomTypeConverter(sourceType);
+            var destinationConverter = GetSoftCustomTypeConverter(destinationType);
+            var sourceConverter = GetSoftCustomTypeConverter(sourceType);
 
             if (destinationConverter != null && destinationConverter.CanConvertFrom(value.GetType()))
                 return destinationConverter.ConvertFrom(null, culture, value);
@@ -164,7 +165,7 @@ namespace Soft.Core
         }
 
         /// <summary>
-        /// Convierte un valor a un tipo destinatario
+        ///     Convierte un valor a un tipo destinatario
         /// </summary>
         /// <param name="value">Valor a convertir</param>
         /// <returns>Valor convertido</returns>
@@ -175,7 +176,7 @@ namespace Soft.Core
         }
 
         /// <summary>
-        /// Convierte Enums para el from-end
+        ///     Convierte Enums para el from-end
         /// </summary>
         /// <param name="str">Cadena a convertir</param>
         /// <returns>Valor convertido</returns>
@@ -191,9 +192,8 @@ namespace Soft.Core
             return result;
         }
 
-
         /// <summary>
-        /// Establece a telerik a una cultura (Kendo ui)
+        ///     Establece a telerik a una cultura (Kendo ui)
         /// </summary>
         public static void SetTelerikCulture()
         {
@@ -208,7 +208,7 @@ namespace Soft.Core
         #region Method
 
         /// <summary>
-        /// Verifica si una cadena es un email valido
+        ///     Verifica si una cadena es un email valido
         /// </summary>
         /// <param name="email">Email a verificar</param>
         /// <returns>Boolean</returns>
@@ -225,7 +225,7 @@ namespace Soft.Core
         }
 
         /// <summary>
-        /// Genera numeros aleatorios
+        ///     Genera numeros aleatorios
         /// </summary>
         /// <param name="length">Longitud</param>
         /// <returns>Cadena de resultado</returns>
@@ -239,7 +239,7 @@ namespace Soft.Core
         }
 
         /// <summary>
-        /// Retorna numeros enteros aleatorios con un especifico rango
+        ///     Retorna numeros enteros aleatorios con un especifico rango
         /// </summary>
         /// <param name="min">Numero minimo</param>
         /// <param name="max">Numero maximo</param>
@@ -252,7 +252,7 @@ namespace Soft.Core
         }
 
         /// <summary>
-        /// Asegura que la cvadena no exceda el maximo permitido
+        ///     Asegura que la cvadena no exceda el maximo permitido
         /// </summary>
         /// <param name="str">cadena de entrada</param>
         /// <param name="maxLength">Longitud Maxima</param>
@@ -275,7 +275,7 @@ namespace Soft.Core
         }
 
         /// <summary>
-        /// Asegura que no sea null la cadena
+        ///     Asegura que no sea null la cadena
         /// </summary>
         /// <param name="str">Cadena de entrada</param>
         /// <returns>resultado</returns>
@@ -285,7 +285,7 @@ namespace Soft.Core
         }
 
         /// <summary>
-        /// Asegura que la cadena solo contenga valores numericos
+        ///     Asegura que la cadena solo contenga valores numericos
         /// </summary>
         /// <param name="str">Cadena de entrada</param>
         /// <returns>Cadena vacia si no contiene solo numeros, de lo contrario la cadena ingresada</returns>
@@ -304,7 +304,7 @@ namespace Soft.Core
         }
 
         /// <summary>
-        /// Indica si un elemento del arreglo es nulo o vacio
+        ///     Indica si un elemento del arreglo es nulo o vacio
         /// </summary>
         /// <param name="stringsToValidate">Arreglo de cadena a validar</param>
         /// <returns>Boolean</returns>
@@ -316,7 +316,7 @@ namespace Soft.Core
         }
 
         /// <summary>
-        /// Compara  2 arreglos
+        ///     Compara  2 arreglos
         /// </summary>
         /// <typeparam name="T">Tipo</typeparam>
         /// <param name="a1">Arreglo 1</param>

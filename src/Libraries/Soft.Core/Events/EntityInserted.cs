@@ -1,7 +1,7 @@
 ﻿namespace Soft.Core.Events
 {
     /// <summary>
-    /// Contenedor de entities que hayan si do insertados
+    /// Contenedor de entities que hayan sido insertados
     /// </summary>
     /// <typeparam name="T"></typeparam>
     public class EntityInserted<T> where T : BaseEntity

@@ -10,7 +10,7 @@ using Soft.Core.Caching;
 using Soft.Core.Data;
 using Soft.Core.Domain.Common.Settings;
 using Soft.Core.Domain.Localization;
-using Soft.Data.Ef;
+using Soft.Data.Entities;
 using Soft.Services.Events;
 using Soft.Services.Logging;
 

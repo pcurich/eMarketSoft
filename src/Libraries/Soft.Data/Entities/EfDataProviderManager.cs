@@ -1,9 +1,9 @@
 ﻿using System;
 using Soft.Core;
 using Soft.Core.Data;
-using Soft.Data.Sql;
+using Soft.Data.Provider;
 
-namespace Soft.Data.Ef
+namespace Soft.Data.Entities
 {
     public class EfDataProviderManager : BaseDataProviderManager
     {

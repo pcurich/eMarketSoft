@@ -7,7 +7,7 @@ using Soft.Core.Data;
 using Soft.Core.Domain.Common.Settings;
 using Soft.Core.Domain.Customers;
 using Soft.Core.Domain.Logging;
-using Soft.Data.Ef;
+using Soft.Data.Entities;
 using Soft.Data.Extensions;
 
 namespace Soft.Services.Logging

@@ -7,6 +7,9 @@ using System.Text;
 
 namespace Soft.Core.Plugins
 {
+    /// <summary>
+    /// Parseador de archivos a plugins
+    /// </summary>
     public static class PluginFileParser
     {
         public static IList<string> ParseInstalledPluginsFile(string filePath)
@@ -139,53 +142,51 @@ namespace Soft.Core.Plugins
 
             //Obtiene el Description.txt file path
             if (plugin.OriginalAssemblyFile == null)
-                throw new Exception(string.Format("Cannot load original assembly path for {0} plugin.",
+                throw new Exception(string.Format("No se puede leer el ensamblado original para el {0} plugin.",
                     plugin.SystemName));
 
 
-            if (plugin.OriginalAssemblyFile.Directory != null)
+            if (plugin.OriginalAssemblyFile.Directory == null) 
+                return;
+
+            var filePath = Path.Combine(plugin.OriginalAssemblyFile.Directory.FullName, "Description.txt");
+            if (!File.Exists(filePath))
+                throw new Exception(string.Format("La descripcion para el plugin {0} con archivo {1} no existe",
+                    plugin.SystemName, filePath));
+
+
+            var keyValues = new List<KeyValuePair<string, string>>();
+            keyValues.Add(new KeyValuePair<string, string>("Group", plugin.Group));
+            keyValues.Add(new KeyValuePair<string, string>("FriendlyName", plugin.FriendlyName));
+            keyValues.Add(new KeyValuePair<string, string>("SystemName", plugin.SystemName));
+            keyValues.Add(new KeyValuePair<string, string>("Version", plugin.Version));
+            keyValues.Add(new KeyValuePair<string, string>("SupportedVersions",string.Join(",", plugin.SupportedVersions)));
+            keyValues.Add(new KeyValuePair<string, string>("Author", plugin.Author));
+            keyValues.Add(new KeyValuePair<string, string>("DisplayOrder",plugin.DisplayOrder.ToString(CultureInfo.InvariantCulture)));
+            keyValues.Add(new KeyValuePair<string, string>("FileName", plugin.PluginFileName));
+            if (plugin.LimitedToStores.Count > 0)
             {
-                var filePath = Path.Combine(plugin.OriginalAssemblyFile.Directory.FullName, "Description.txt");
-                if (!File.Exists(filePath))
-                    throw new Exception(string.Format("Description file for {0} plugin does not exist. {1}",
-                        plugin.SystemName, filePath));
-
-
-                var keyValues = new List<KeyValuePair<string, string>>();
-                keyValues.Add(new KeyValuePair<string, string>("Group", plugin.Group));
-                keyValues.Add(new KeyValuePair<string, string>("FriendlyName", plugin.FriendlyName));
-                keyValues.Add(new KeyValuePair<string, string>("SystemName", plugin.SystemName));
-                keyValues.Add(new KeyValuePair<string, string>("Version", plugin.Version));
-                keyValues.Add(new KeyValuePair<string, string>("SupportedVersions",
-                    string.Join(",", plugin.SupportedVersions)));
-                keyValues.Add(new KeyValuePair<string, string>("Author", plugin.Author));
-                keyValues.Add(new KeyValuePair<string, string>("DisplayOrder",
-                    plugin.DisplayOrder.ToString(CultureInfo.InvariantCulture)));
-                keyValues.Add(new KeyValuePair<string, string>("FileName", plugin.PluginFileName));
-                if (plugin.LimitedToStores.Count > 0)
+                var storeList = "";
+                for (int i = 0; i < plugin.LimitedToStores.Count; i++)
                 {
-                    var storeList = "";
-                    for (int i = 0; i < plugin.LimitedToStores.Count; i++)
-                    {
-                        storeList += plugin.LimitedToStores[i];
-                        if (i != plugin.LimitedToStores.Count - 1)
-                            storeList += ",";
-                    }
-                    keyValues.Add(new KeyValuePair<string, string>("LimitedToStores", storeList));
+                    storeList += plugin.LimitedToStores[i];
+                    if (i != plugin.LimitedToStores.Count - 1)
+                        storeList += ",";
                 }
-
-                var sb = new StringBuilder();
-                for (int i = 0; i < keyValues.Count; i++)
-                {
-                    var key = keyValues[i].Key;
-                    var value = keyValues[i].Value;
-                    sb.AppendFormat("{0}: {1}", key, value);
-                    if (i != keyValues.Count - 1)
-                        sb.Append(Environment.NewLine);
-                }
-                //save the file
-                File.WriteAllText(filePath, sb.ToString());
+                keyValues.Add(new KeyValuePair<string, string>("Limitado a tiendas", storeList));
             }
+
+            var sb = new StringBuilder();
+            for (int i = 0; i < keyValues.Count; i++)
+            {
+                var key = keyValues[i].Key;
+                var value = keyValues[i].Value;
+                sb.AppendFormat("{0}: {1}", key, value);
+                if (i != keyValues.Count - 1)
+                    sb.Append(Environment.NewLine);
+            }
+            //Guarda el archivo
+            File.WriteAllText(filePath, sb.ToString());
         }
     }
 }

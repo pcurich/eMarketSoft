@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Data.Entity;
 using NUnit.Framework;
-using Soft.Data.Ef;
+using Soft.Data.Entities;
 using Soft.Test;
 
 namespace Soft.Data.Test

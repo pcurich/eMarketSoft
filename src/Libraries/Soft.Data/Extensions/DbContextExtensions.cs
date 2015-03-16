@@ -5,7 +5,7 @@ using System.Data.Entity.Core.Metadata.Edm;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using Soft.Core;
-using Soft.Data.Ef;
+using Soft.Data.Entities;
 
 namespace Soft.Data.Extensions
 {
@@ -55,7 +55,7 @@ namespace Soft.Data.Extensions
             var output = context as DbContext;
 
             if (output == null)
-                throw new InvalidOperationException("El contexto no soporta esta operacion.");
+                throw new InvalidOperationException("El contexto no soporta esta operacion. No es una instancia de DbContext");
 
             return output;
         }

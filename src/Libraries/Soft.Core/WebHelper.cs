@@ -15,7 +15,7 @@ namespace soft.core
     /// </summary>
     public partial class WebHelper : IWebHelper
     {
-        #region Fields
+        #region Propiedades
 
         private readonly HttpContextBase _httpContext;
 

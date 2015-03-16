@@ -65,19 +65,15 @@ namespace Soft.Core.Infrastructure.Patterns
         }
     }
 
-
     public class Singleton
     {
-        private static readonly IDictionary<Type, object> _allSingletons;
+        public static readonly IDictionary<Type, object> AllSingletons;
 
         static Singleton()
         {
-            _allSingletons = new Dictionary<Type, object>();
+            AllSingletons = new Dictionary<Type, object>();
         }
 
-        public static IDictionary<Type, object> AllSingletons
-        {
-            get { return _allSingletons; }
-        }
+        
     }
 }

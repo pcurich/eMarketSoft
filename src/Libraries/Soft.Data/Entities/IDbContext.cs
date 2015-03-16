@@ -2,7 +2,7 @@
 using System.Data.Entity;
 using Soft.Core;
 
-namespace Soft.Data.Ef
+namespace Soft.Data.Entities
 {
     public interface IDbContext
     {
@@ -19,7 +19,13 @@ namespace Soft.Data.Ef
         /// <returns></returns>
         int SaveChanges();
 
-        //Ejecuta un store procedure y carga una lista de entities al final
+        /// <summary>
+        /// Ejecuta un store procedure y carga una lista de entities al final
+        /// </summary>
+        /// <typeparam name="TEntity">Tipo del Entity</typeparam>
+        /// <param name="commandText">El testo del comando.</param>
+        /// <param name="parameters">Los parametros.</param>
+        /// <returns></returns>
         IList<TEntity> ExecuteStoredProcedureList<TEntity>(string commandText, params object[] parameters)
             where TEntity : BaseEntity, new();
 

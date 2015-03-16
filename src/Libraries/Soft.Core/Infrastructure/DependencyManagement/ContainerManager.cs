@@ -8,24 +8,22 @@ using Autofac.Integration.Mvc;
 
 namespace Soft.Core.Infrastructure.DependencyManagement
 {
+    /// <summary>
+    ///     Contenedor de los ensamblados
+    /// </summary>
     public class ContainerManager
     {
-        private readonly IContainer _container;
-
         public ContainerManager(IContainer container)
         {
-            _container = container;
+            Container = container;
         }
 
-        public IContainer Container
-        {
-            get { return _container; }
-        }
+        public IContainer Container { get; private set; }
 
         public T Resolve<T>(string key = "", ILifetimeScope scope = null) where T : class
         {
             if (scope == null)
-                //objetivo  no especificado
+                //objetivo no especificado
                 scope = Scope();
 
             return string.IsNullOrEmpty(key)
@@ -75,7 +73,7 @@ namespace Soft.Core.Infrastructure.DependencyManagement
                     {
                         var service = Resolve(parameter.ParameterType, scope);
                         if (service == null)
-                            throw new SoftException("Unkown dependency");
+                            throw new SoftException("Dependencia desconocida");
                         parameterInstances.Add(service);
                     }
                     return Activator.CreateInstance(type, parameterInstances.ToArray());
@@ -121,7 +119,7 @@ namespace Soft.Core.Infrastructure.DependencyManagement
                 return HttpContext.Current != null
                     ? AutofacDependencyResolver.Current.RequestLifetimeScope
                     : Container.BeginLifetimeScope(MatchingScopeLifetimeTags.RequestLifetimeScopeTag);
-                //Cuando el lifetime es regresado, se deberia estar seguro que se dispose una vez usado (xe en una tarea programada)
+                //Cuando el lifetime es regresado, se deberia estar seguro que se dispose una vez usado (por ejemplo en una tarea programada)
             }
             catch (Exception)
             {

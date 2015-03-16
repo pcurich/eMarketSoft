@@ -4,7 +4,7 @@ using Soft.Core.Data;
 using Soft.Core.Domain.Common;
 using Soft.Core.Domain.Common.Settings;
 using Soft.Data;
-using Soft.Data.Ef;
+using Soft.Data.Entities;
 
 namespace Soft.Services.Common
 {

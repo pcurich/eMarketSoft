@@ -38,22 +38,27 @@ namespace Soft.Core.Infrastructure
         }
 
         /// <summary>
-        ///     Establece o se obtiene cualquier ensamblado en el dominio de la aplicacion
-        ///     cuando se cargan los tipos soft
+        ///     Establece o se obtiene cualquier ensamblado en el
+        ///     dominio de la aplicacion cuando se cargan los tipos soft
         ///     Cargando los patrones son sumistrados cuando son cargados
         /// </summary>
         public bool LoadAppDomainAssemblies { get; set; }
 
         /// <summary>
-        ///     Obtiene y establece los ensamblados cargados al iniciar la aplicacion
+        ///     Obtiene y establece los ensamblados cargados al iniciar
+        ///     la aplicacion
         /// </summary>
         public IList<string> AssemblyNames { get; set; }
 
         /// <summary>
-        ///     Obtiene los patrones para las dlls que no necesitamos saber para investigarlos
+        ///     Obtiene los patrones para las dlls que no necesitamos
+        ///     saber para investigarlos
         /// </summary>
         public string AssemblySkipLoadingPattern { get; set; }
 
+        /// <summary>
+        ///     Aquellos ensanblados que no necesitamos
+        /// </summary>
         public string AssemblyRestrictToLoadingPattern { get; set; }
 
         #endregion
@@ -61,42 +66,46 @@ namespace Soft.Core.Infrastructure
         #region Metodos
 
         /// <summary>
-        /// Encuentra clases
+        ///     Encuentra clases de tipo T
         /// </summary>
         /// <typeparam name="T">Tipo de clase a buscar</typeparam>
         /// <param name="onlyConcreteClasses">Si es <c>true</c> [solo clases concretas].</param>
+        /// <returns></returns>
         public IEnumerable<Type> FindClassesOfType<T>(bool onlyConcreteClasses = true)
         {
             return FindClassesOfType(typeof (T), onlyConcreteClasses);
         }
 
         /// <summary>
-        /// Encuentra clases
+        ///     Encuentra clases de tipo Type
         /// </summary>
         /// <param name="assignTypeFrom">Tipo de clase a buscar.</param>
         /// <param name="onlyConcreteClasses">Si es <c>true</c> [solo clases concretas].</param>
+        /// <returns></returns>
         public IEnumerable<Type> FindClassesOfType(Type assignTypeFrom, bool onlyConcreteClasses = true)
         {
             return FindClassesOfType(assignTypeFrom, GetAssemblies(), onlyConcreteClasses);
         }
 
         /// <summary>
-        /// Encuentra clases
+        ///     Encuentra clases Dde tipo T
         /// </summary>
         /// <typeparam name="T">Tipo de clase a buscar</typeparam>
         /// <param name="assemblies">Lista de ensambaldos de donde debe buscar</param>
         /// <param name="onlyConcreteClasses">Si es <c>true</c> [solo clases concretas].</param>
+        /// <returns></returns>
         public IEnumerable<Type> FindClassesOfType<T>(IEnumerable<Assembly> assemblies, bool onlyConcreteClasses = true)
         {
             return FindClassesOfType(typeof (T), assemblies, onlyConcreteClasses);
         }
 
         /// <summary>
-        /// Encuentra clases
+        ///     Encuentra clases de tipo Type
         /// </summary>
         /// <param name="assignTypeFrom">Tipo de clase a buscar.</param>
         /// <param name="assemblies">Lista de ensambaldos de donde debe buscar</param>
         /// <param name="onlyConcreteClasses">Si es <c>true</c> [solo clases concretas].</param>
+        /// <returns></returns>
         public IEnumerable<Type> FindClassesOfType(Type assignTypeFrom, IEnumerable<Assembly> assemblies,
             bool onlyConcreteClasses = true)
         {
@@ -118,27 +127,27 @@ namespace Soft.Core.Infrastructure
                             throw;
                         }
                     }
-                    if (types != null)
+                    if (types == null)
+                        continue;
+
+                    foreach (var t in types)
                     {
-                        foreach (var t in types)
+                        if (assignTypeFrom.IsAssignableFrom(t) ||
+                            (assignTypeFrom.IsGenericTypeDefinition &&
+                             DoesTypeImplementOpenGeneric(t, assignTypeFrom)))
                         {
-                            if (assignTypeFrom.IsAssignableFrom(t) ||
-                                (assignTypeFrom.IsGenericTypeDefinition &&
-                                 DoesTypeImplementOpenGeneric(t, assignTypeFrom)))
+                            if (!t.IsInterface)
                             {
-                                if (!t.IsInterface)
+                                if (onlyConcreteClasses)
                                 {
-                                    if (onlyConcreteClasses)
-                                    {
-                                        if (t.IsClass && !t.IsAbstract)
-                                        {
-                                            result.Add(t);
-                                        }
-                                    }
-                                    else
+                                    if (t.IsClass && !t.IsAbstract)
                                     {
                                         result.Add(t);
                                     }
+                                }
+                                else
+                                {
+                                    result.Add(t);
                                 }
                             }
                         }
@@ -160,7 +169,7 @@ namespace Soft.Core.Infrastructure
         }
 
         /// <summary>
-        /// Lista de ensamblados relacionados a la aplicacion actual, usualmente librerias dll
+        ///     Lista de ensamblados relacionados a la aplicacion actual, usualmente librerias dll
         /// </summary>
         public virtual IList<Assembly> GetAssemblies()
         {
@@ -179,7 +188,7 @@ namespace Soft.Core.Infrastructure
         #region Util
 
         /// <summary>
-        ///     Itera todos los ensambladosde la aplicacin y si el nombre coincide
+        ///     Itera todos los ensamblados de la aplicacin y si el nombre coincide
         ///     con el patron de configuracion se agrega a la lista
         /// </summary>
         /// <param name="addedAssemblyNames"></param>
@@ -233,6 +242,10 @@ namespace Soft.Core.Infrastructure
             return Regex.IsMatch(assemblyFullName, pattern, RegexOptions.IgnoreCase | RegexOptions.Compiled);
         }
 
+        /// <summary>
+        /// Carga en un lista las dlls disponibles en el directorio bin
+        /// </summary>
+        /// <param name="directoryPath">La direccion del path.</param>
         protected virtual void LoadMatchingAssemblies(string directoryPath)
         {
             var loadedAssemblyNames = new List<string>();
@@ -252,16 +265,7 @@ namespace Soft.Core.Infrastructure
                 {
                     var an = AssemblyName.GetAssemblyName(dllPath);
                     if (Matches(an.FullName) && !loadedAssemblyNames.Contains(an.FullName))
-                    {
                         App.Load(an);
-                    }
-
-                    //old loading stuff
-                    //Assembly a = Assembly.ReflectionOnlyLoadFrom(dllPath);
-                    //if (Matches(a.FullName) && !loadedAssemblyNames.Contains(a.FullName))
-                    //{
-                    //    App.Load(a.FullName);
-                    //}
                 }
                 catch (BadImageFormatException ex)
                 {

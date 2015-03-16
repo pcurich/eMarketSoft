@@ -9,6 +9,9 @@ using Soft.Core.Infrastructure.DependencyManagement;
 
 namespace Soft.Core.Infrastructure
 {
+    /// <summary>
+    /// Manejador de los emsamblados, carga dinamicamente 
+    /// </summary>
     public class SoftEngine : IEngine
     {
         #region Propiedades
@@ -22,24 +25,6 @@ namespace Soft.Core.Infrastructure
 
         #region Util
 
-        protected virtual void RunStartupTasks()
-        {
-            var typeFinder = ContainerManager.Resolve<ITypeFinder>();
-            var startUpTaskTypes = typeFinder.FindClassesOfType<IStartupTask>();
-            var startUpTasks = new List<IStartupTask>();
-            foreach (var startUpTaskType in startUpTaskTypes)
-                startUpTasks.Add((IStartupTask) Activator.CreateInstance(startUpTaskType));
-
-            //ordenamos
-            startUpTasks = startUpTasks
-                .AsQueryable()
-                .OrderBy(st => st.Order)
-                .ToList();
-
-            foreach (var startUpTask in startUpTasks)
-                startUpTask.Execute();
-        }
-
         protected virtual void RegisterDependencies(SoftConfig config)
         {
             var builder = new ContainerBuilder();
@@ -49,7 +34,8 @@ namespace Soft.Core.Infrastructure
             //porque Build() o Update() pueden ser llamados una vez en un ContainerBuilder
 
             //Dependencias
-            var typeFinder = new WebAppTypeFinder(config);
+            var typeFinder = new WebAppTypeFinder(config); 
+            //dlls propias soft.core, soft.data. soft.service, soft.web
             builder = new ContainerBuilder();
             builder.RegisterInstance(config).As<SoftConfig>().SingleInstance();
             builder.RegisterInstance(this).As<IEngine>().SingleInstance();
@@ -74,6 +60,25 @@ namespace Soft.Core.Infrastructure
 
             //Establece el resolvedor de dependencias
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
+        }
+
+        protected virtual void RunStartupTasks()
+        {
+            var typeFinder = ContainerManager.Resolve<ITypeFinder>();
+            var startUpTaskTypes = typeFinder.FindClassesOfType<IStartupTask>();
+            var startUpTasks = new List<IStartupTask>();
+
+            foreach (var startUpTaskType in startUpTaskTypes)
+                startUpTasks.Add((IStartupTask)Activator.CreateInstance(startUpTaskType));
+
+            //ordenamos
+            startUpTasks = startUpTasks
+                .AsQueryable()
+                .OrderBy(st => st.Order)
+                .ToList();
+
+            foreach (var startUpTask in startUpTasks)
+                startUpTask.Execute();
         }
 
         #endregion

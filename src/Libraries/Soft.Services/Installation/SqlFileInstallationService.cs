@@ -10,7 +10,7 @@ using Soft.Core.Domain.Localization;
 using Soft.Core.Domain.Stores;
 using Soft.Core.Infrastructure;
 using Soft.Data;
-using Soft.Data.Ef;
+using Soft.Data.Entities;
 using Soft.Services.Customers;
 using Soft.Services.Localization;
 

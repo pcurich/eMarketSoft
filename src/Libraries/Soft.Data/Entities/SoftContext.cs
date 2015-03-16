@@ -9,7 +9,7 @@ using System.Reflection;
 using Soft.Core;
 using Soft.Data.Mapping;
 
-namespace Soft.Data.Ef
+namespace Soft.Data.Entities
 {
     public class SoftContext : DbContext, IDbContext
     {
@@ -88,15 +88,25 @@ namespace Soft.Data.Ef
         }
 
         /// <summary>
-        /// Get DbSet
+        /// Obtienen el DbSet
         /// </summary>
-        /// <typeparam name="TEntity">Entity type</typeparam>
-        /// <returns>DbSet</returns>
+        /// <typeparam name="TEntity">Tipo del Entity</typeparam>
+        /// <returns>
+        /// DbSet
+        /// </returns>
         public new IDbSet<TEntity> Set<TEntity>() where TEntity : BaseEntity
         {
             return base.Set<TEntity>();
         }
 
+        /// <summary>
+        /// Ejecuta un store procedure y carga una lista de entities al final
+        /// </summary>
+        /// <typeparam name="TEntity">Tipo del Entity</typeparam>
+        /// <param name="commandText">El testo del comando.</param>
+        /// <param name="parameters">Los parametros.</param>
+        /// <returns></returns>
+        /// <exception cref="System.Exception">No soporta el tipo de parametro</exception>
         public IList<TEntity> ExecuteStoredProcedureList<TEntity>(string commandText, params object[] parameters)
             where TEntity : BaseEntity, new()
         {
@@ -136,11 +146,31 @@ namespace Soft.Data.Ef
             return result;
         }
 
+        /// <summary>
+        /// Crea una celda Sql query y retorna un elemento generico
+        /// Puede ser de cuakquier tipo que tenga la propiedad que cruce con el nombre de las columnas
+        /// retornadas por el query o puede ser datos primitivos
+        /// El tipo no tiene que ser un Entity
+        /// El resultado de este consulta nunca sera trackeado por un evento del contexto
+        /// Si el objeto retornado es del tipo enity
+        /// </summary>
+        /// <typeparam name="TElement">El tipo de objeto retornado por la query</typeparam>
+        /// <param name="sql">la cadena de la consulta</param>
+        /// <param name="parameters">parametros que se aplicaran a la consulta</param>
+        /// <returns></returns>
         public IEnumerable<TElement> SqlQuery<TElement>(string sql, params object[] parameters)
         {
             return Database.SqlQuery<TElement>(sql, parameters);
         }
 
+        /// <summary>
+        /// Ejecuta un comando DDL/DML desde la base de datos
+        /// </summary>
+        /// <param name="sql">La cadena del comando</param>
+        /// <param name="doNotEnsureTransaction">Falso si la creacion de la transaccion no es segura, Verdadero si la transaccion es segura</param>
+        /// <param name="timeout">Tiempo en segundos, si es null indica los valores por defecto del roveedor seran usados</param>
+        /// <param name="parameters">Parametros que se aplicaran a las cadena de strings</param>
+        /// <returns></returns>
         public int ExecuteSqlCommand(string sql, bool doNotEnsureTransaction = false, int? timeout = null,
             params object[] parameters)
         {

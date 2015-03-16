@@ -51,7 +51,8 @@ namespace Soft.Core.Data
         IQueryable<T> Table { get; }
 
         /// <summary>
-        /// Obtiene tablas con "No Traking" activo (EF caracteristica). Usar este cuando se va a utilizar recursos de solo lectura
+        /// Obtiene tablas con "No Traking" activo (EF caracteristica). 
+        /// Usar este cuando se va a utilizar recursos de solo lectura
         /// </summary>
         IQueryable<T> TableNoTracking { get; }
     }

@@ -30,7 +30,6 @@ namespace Soft.Data.Initializers
                 bool createTables;
                 if (_tablesToValidate != null && _tablesToValidate.Length > 0)
                 {
-
                     //Validamos algunos nombres de tablas
                     var existingTableNames = new List<string>(
                         context.Database

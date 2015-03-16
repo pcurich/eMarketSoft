@@ -6,51 +6,50 @@ using System.Linq;
 using Soft.Core;
 using Soft.Core.Data;
 
-namespace Soft.Data.Ef
+namespace Soft.Data.Entities
 {
     /// <summary>
-    /// Entity Framework repository
+    ///     Entity Framework repository
     /// </summary>
-    public partial class EfRepository<T> : IRepository<T> where T : BaseEntity
+    public class EfRepository<T> : IRepository<T> where T : BaseEntity
     {
-        #region Fields
+        #region Ctr
+
+        public EfRepository(IDbContext context)
+        {
+            _context = context;
+        }
+
+        #endregion
+
+        #region Propiedades
 
         private readonly IDbContext _context;
         private IDbSet<T> _entities;
 
         #endregion
 
-        #region Ctor
+        #region Metodos
 
         /// <summary>
-        /// Ctor
+        /// Obtiene el entity por el identificador
         /// </summary>
-        /// <param name="context">Object context</param>
-        public EfRepository(IDbContext context)
-        {
-            this._context = context;
-        }
-
-        #endregion
-
-        #region Methods
-
-        /// <summary>
-        /// Get entity by identifier
-        /// </summary>
-        /// <param name="id">Identifier</param>
-        /// <returns>Entity</returns>
+        /// <param name="id">Identificador</param>
+        /// <returns>
+        /// Entity
+        /// </returns>
         public virtual T GetById(object id)
         {
             //see some suggested performance optimization (not tested)
             //http://stackoverflow.com/questions/11686225/dbset-find-method-ridiculously-slow-compared-to-singleordefault-on-id/11688189#comment34876113_11688189
-            return this.Entities.Find(id);
+            return Entities.Find(id);
         }
 
         /// <summary>
-        /// Insert entity
+        /// Inserta el entity
         /// </summary>
         /// <param name="entity">Entity</param>
+        /// <exception cref="System.ArgumentNullException">entity</exception>
         public virtual void Insert(T entity)
         {
             try
@@ -58,9 +57,9 @@ namespace Soft.Data.Ef
                 if (entity == null)
                     throw new ArgumentNullException("entity");
 
-                this.Entities.Add(entity);
+                Entities.Add(entity);
 
-                this._context.SaveChanges();
+                _context.SaveChanges();
             }
             catch (DbEntityValidationException dbEx)
             {
@@ -68,7 +67,9 @@ namespace Soft.Data.Ef
 
                 foreach (var validationErrors in dbEx.EntityValidationErrors)
                     foreach (var validationError in validationErrors.ValidationErrors)
-                        msg += string.Format("Property: {0} Error: {1}", validationError.PropertyName, validationError.ErrorMessage) + Environment.NewLine;
+                        msg +=
+                            string.Format("Propiedad: {0} Error: {1}", validationError.PropertyName,
+                                validationError.ErrorMessage) + Environment.NewLine;
 
                 var fail = new Exception(msg, dbEx);
                 //Debug.WriteLine(fail.Message, fail);
@@ -77,9 +78,10 @@ namespace Soft.Data.Ef
         }
 
         /// <summary>
-        /// Insert entities
+        /// Inserta varios Entities
         /// </summary>
         /// <param name="entities">Entities</param>
+        /// <exception cref="System.ArgumentNullException">entities</exception>
         public virtual void Insert(IEnumerable<T> entities)
         {
             try
@@ -88,9 +90,9 @@ namespace Soft.Data.Ef
                     throw new ArgumentNullException("entities");
 
                 foreach (var entity in entities)
-                    this.Entities.Add(entity);
+                    Entities.Add(entity);
 
-                this._context.SaveChanges();
+                _context.SaveChanges();
             }
             catch (DbEntityValidationException dbEx)
             {
@@ -98,7 +100,9 @@ namespace Soft.Data.Ef
 
                 foreach (var validationErrors in dbEx.EntityValidationErrors)
                     foreach (var validationError in validationErrors.ValidationErrors)
-                        msg += string.Format("Property: {0} Error: {1}", validationError.PropertyName, validationError.ErrorMessage) + Environment.NewLine;
+                        msg +=
+                            string.Format("Property: {0} Error: {1}", validationError.PropertyName,
+                                validationError.ErrorMessage) + Environment.NewLine;
 
                 var fail = new Exception(msg, dbEx);
                 //Debug.WriteLine(fail.Message, fail);
@@ -107,7 +111,7 @@ namespace Soft.Data.Ef
         }
 
         /// <summary>
-        /// Update entity
+        ///     Update entity
         /// </summary>
         /// <param name="entity">Entity</param>
         public virtual void Update(T entity)
@@ -117,7 +121,7 @@ namespace Soft.Data.Ef
                 if (entity == null)
                     throw new ArgumentNullException("entity");
 
-                this._context.SaveChanges();
+                _context.SaveChanges();
             }
             catch (DbEntityValidationException dbEx)
             {
@@ -125,7 +129,9 @@ namespace Soft.Data.Ef
 
                 foreach (var validationErrors in dbEx.EntityValidationErrors)
                     foreach (var validationError in validationErrors.ValidationErrors)
-                        msg += Environment.NewLine + string.Format("Property: {0} Error: {1}", validationError.PropertyName, validationError.ErrorMessage);
+                        msg += Environment.NewLine +
+                               string.Format("Property: {0} Error: {1}", validationError.PropertyName,
+                                   validationError.ErrorMessage);
 
                 var fail = new Exception(msg, dbEx);
                 //Debug.WriteLine(fail.Message, fail);
@@ -134,7 +140,7 @@ namespace Soft.Data.Ef
         }
 
         /// <summary>
-        /// Delete entity
+        ///     Delete entity
         /// </summary>
         /// <param name="entity">Entity</param>
         public virtual void Delete(T entity)
@@ -144,9 +150,9 @@ namespace Soft.Data.Ef
                 if (entity == null)
                     throw new ArgumentNullException("entity");
 
-                this.Entities.Remove(entity);
+                Entities.Remove(entity);
 
-                this._context.SaveChanges();
+                _context.SaveChanges();
             }
             catch (DbEntityValidationException dbEx)
             {
@@ -154,7 +160,9 @@ namespace Soft.Data.Ef
 
                 foreach (var validationErrors in dbEx.EntityValidationErrors)
                     foreach (var validationError in validationErrors.ValidationErrors)
-                        msg += Environment.NewLine + string.Format("Property: {0} Error: {1}", validationError.PropertyName, validationError.ErrorMessage);
+                        msg += Environment.NewLine +
+                               string.Format("Property: {0} Error: {1}", validationError.PropertyName,
+                                   validationError.ErrorMessage);
 
                 var fail = new Exception(msg, dbEx);
                 //Debug.WriteLine(fail.Message, fail);
@@ -163,7 +171,7 @@ namespace Soft.Data.Ef
         }
 
         /// <summary>
-        /// Delete entities
+        ///     Delete entities
         /// </summary>
         /// <param name="entities">Entities</param>
         public virtual void Delete(IEnumerable<T> entities)
@@ -174,9 +182,9 @@ namespace Soft.Data.Ef
                     throw new ArgumentNullException("entities");
 
                 foreach (var entity in entities)
-                    this.Entities.Remove(entity);
+                    Entities.Remove(entity);
 
-                this._context.SaveChanges();
+                _context.SaveChanges();
             }
             catch (DbEntityValidationException dbEx)
             {
@@ -184,7 +192,9 @@ namespace Soft.Data.Ef
 
                 foreach (var validationErrors in dbEx.EntityValidationErrors)
                     foreach (var validationError in validationErrors.ValidationErrors)
-                        msg += Environment.NewLine + string.Format("Property: {0} Error: {1}", validationError.PropertyName, validationError.ErrorMessage);
+                        msg += Environment.NewLine +
+                               string.Format("Property: {0} Error: {1}", validationError.PropertyName,
+                                   validationError.ErrorMessage);
 
                 var fail = new Exception(msg, dbEx);
                 //Debug.WriteLine(fail.Message, fail);
@@ -197,29 +207,24 @@ namespace Soft.Data.Ef
         #region Properties
 
         /// <summary>
-        /// Gets a table
+        ///     Gets a table
         /// </summary>
         public virtual IQueryable<T> Table
         {
-            get
-            {
-                return this.Entities;
-            }
+            get { return Entities; }
         }
 
         /// <summary>
-        /// Gets a table with "no tracking" enabled (EF feature) Use it only when you load record(s) only for read-only operations
+        ///     Gets a table with "no tracking" enabled (EF feature) Use it only when you load record(s) only for read-only
+        ///     operations
         /// </summary>
         public virtual IQueryable<T> TableNoTracking
         {
-            get
-            {
-                return this.Entities.AsNoTracking();
-            }
+            get { return Entities.AsNoTracking(); }
         }
 
         /// <summary>
-        /// Entities
+        ///     Entities
         /// </summary>
         protected virtual IDbSet<T> Entities
         {

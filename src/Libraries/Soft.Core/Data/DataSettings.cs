@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace Soft.Core.Data
 {
+    /// <summary>
+    /// Representa la configuracion en el archivo Settings.txt
+    /// </summary>
     public partial class DataSettings
     {
         public string DataProvider { get; set; }

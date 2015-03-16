@@ -9,13 +9,13 @@ namespace Soft.Core.Fakes
     {
         private readonly HttpCookieCollection _cookies;
         private readonly NameValueCollection _formParams;
-        private readonly NameValueCollection _queryStringParams;
         private readonly NameValueCollection _headers;
-        private readonly NameValueCollection _serverVariables;
+        private readonly string _httpMethod;
+        private readonly NameValueCollection _queryStringParams;
         private readonly string _relativeUrl;
+        private readonly NameValueCollection _serverVariables;
         private readonly Uri _url;
         private readonly Uri _urlReferrer;
-        private readonly string _httpMethod;
 
         public FakeHttpRequest(string relativeUrl, string httpMethod,
             NameValueCollection formParams, NameValueCollection queryStringParams,
@@ -27,7 +27,7 @@ namespace Soft.Core.Fakes
             _queryStringParams = queryStringParams;
             _cookies = cookies;
             _serverVariables = serverVariables;
-            //ensure collections are not null
+            //Asegura que las colecciones no sean nulas
             if (_formParams == null)
                 _formParams = new NameValueCollection();
             if (_queryStringParams == null)

@@ -5,9 +5,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Web;
 using System.Web.Compilation;
 using System.Web.Hosting;
@@ -26,7 +24,7 @@ namespace Soft.Core.Plugins
 
         #endregion
 
-        #region Campos
+        #region Propiedades
 
         private static readonly ReaderWriterLockSlim Locker = new ReaderWriterLockSlim();
         private static DirectoryInfo _shadowCopyFolder;
@@ -37,7 +35,7 @@ namespace Soft.Core.Plugins
         #region Util
 
         /// <summary>
-        /// Obtiene descripcion del archivo
+        ///     Obtiene descripcion del archivo
         /// </summary>
         /// <param name="pluginFolder"></param>
         /// <returns></returns>
@@ -66,16 +64,16 @@ namespace Soft.Core.Plugins
         }
 
         /// <summary>
-        /// Indica que plugin a sido cargado
+        ///     Indica que plugin a sido cargado
         /// </summary>
         /// <param name="fileInfo"></param>
         /// <returns></returns>
         private static bool IsAlreadyLoaded(FileInfo fileInfo)
         {
-            string fileNameWithoutExt = Path.GetFileNameWithoutExtension(fileInfo.FullName);
+            var fileNameWithoutExt = Path.GetFileNameWithoutExtension(fileInfo.FullName);
             foreach (var a in AppDomain.CurrentDomain.GetAssemblies())
             {
-                var assemblyName = a.FullName.Split(new[] {','}).FirstOrDefault();
+                var assemblyName = a.FullName.Split(',').FirstOrDefault();
                 if (fileNameWithoutExt.Equals(assemblyName, StringComparison.InvariantCultureIgnoreCase))
                     return true;
             }
@@ -83,7 +81,7 @@ namespace Soft.Core.Plugins
         }
 
         /// <summary>
-        /// Optimiza los archivos de deploy
+        ///     Optimiza los archivos de deploy
         /// </summary>
         /// <param name="plug"></param>
         /// <returns></returns>
@@ -122,7 +120,7 @@ namespace Soft.Core.Plugins
         }
 
         /// <summary>
-        /// Usado para inicializar los plugins cuando se esta corriendo en un medio muy confiable
+        ///     Usado para inicializar los plugins cuando se esta corriendo en un medio muy confiable
         /// </summary>
         /// <param name="plug"></param>
         /// <param name="shadowCopyPlugFolder"></param>
@@ -157,7 +155,7 @@ namespace Soft.Core.Plugins
         }
 
         /// <summary>
-        /// Usado para inicializar los plugins cuando se esta corriendo en un medio medio confiable
+        ///     Usado para inicializar los plugins cuando se esta corriendo en un medio medio confiable
         /// </summary>
         /// <param name="plug"></param>
         /// <param name="shadowCopyPlugFolder"></param>
@@ -219,21 +217,21 @@ namespace Soft.Core.Plugins
         }
 
         /// <summary>
-        /// Determina si el directorio es el bin de la carpeta plugins
-        /// plugins\bin
+        ///     Determina si el directorio es el bin de la carpeta plugins
+        ///     plugins\bin
         /// </summary>
         /// <param name="folder"></param>
         /// <returns></returns>
         private static bool IsPackagePluginFolder(DirectoryInfo folder)
         {
-            if (folder == null) return false;
-            if (folder.Parent == null) return false;
-            if (!folder.Parent.Name.Equals("Plugins", StringComparison.InvariantCultureIgnoreCase)) return false;
-            return true;
+            if (folder == null) 
+                return false;
+
+            return folder.Parent != null && folder.Parent.Name.Equals("Plugins", StringComparison.InvariantCultureIgnoreCase);
         }
 
         /// <summary>
-        /// Optiene la ruta completa del archivo InstalledPlugins.txt
+        ///     Optiene la ruta completa del archivo InstalledPlugins.txt
         /// </summary>
         /// <returns></returns>
         private static string GetInstalledPluginsFilePath()
@@ -247,12 +245,12 @@ namespace Soft.Core.Plugins
         #region Metodos
 
         /// <summary>
-        /// Regresa la coleccion de todos los ensamblados referenciados que han sido copiados 
+        ///     Regresa la coleccion de todos los ensamblados referenciados que han sido copiados
         /// </summary>
         public static IEnumerable<PluginDescriptor> ReferencedPlugins { get; set; }
 
         /// <summary>
-        /// Plugins incompatibles con la version correcta
+        ///     Plugins incompatibles con la version correcta
         /// </summary>
         public static IEnumerable<string> IncompatiblePlugins { get; set; }
 
@@ -272,8 +270,7 @@ namespace Soft.Core.Plugins
 
                 try
                 {
-                    var installedPluginSystemNames =
-                        PluginFileParser.ParseInstalledPluginsFile(GetInstalledPluginsFilePath());
+                    var installedPluginSystemNames =PluginFileParser.ParseInstalledPluginsFile(GetInstalledPluginsFilePath());
                     Debug.WriteLine("Creadno una copia en el direcotrio y  consultable para cada dlls");
 
                     Directory.CreateDirectory(pluginFolder.FullName);
@@ -402,7 +399,7 @@ namespace Soft.Core.Plugins
         }
 
         /// <summary>
-        /// Mark plugin as installed
+        ///     Mark plugin as installed
         /// </summary>
         /// <param name="systemName">Plugin system name</param>
         public static void MarkPluginAsInstalled(string systemName)
@@ -419,7 +416,7 @@ namespace Soft.Core.Plugins
 
 
             var installedPluginSystemNames = PluginFileParser.ParseInstalledPluginsFile(GetInstalledPluginsFilePath());
-            bool alreadyMarkedAsInstalled = installedPluginSystemNames
+            var alreadyMarkedAsInstalled = installedPluginSystemNames
                 .FirstOrDefault(x => x.Equals(systemName, StringComparison.InvariantCultureIgnoreCase)) != null;
             if (!alreadyMarkedAsInstalled)
                 installedPluginSystemNames.Add(systemName);
@@ -427,7 +424,7 @@ namespace Soft.Core.Plugins
         }
 
         /// <summary>
-        /// Mark plugin as uninstalled
+        ///     Mark plugin as uninstalled
         /// </summary>
         /// <param name="systemName">Plugin system name</param>
         public static void MarkPluginAsUninstalled(string systemName)
@@ -444,7 +441,7 @@ namespace Soft.Core.Plugins
 
 
             var installedPluginSystemNames = PluginFileParser.ParseInstalledPluginsFile(GetInstalledPluginsFilePath());
-            bool alreadyMarkedAsInstalled = installedPluginSystemNames
+            var alreadyMarkedAsInstalled = installedPluginSystemNames
                 .FirstOrDefault(x => x.Equals(systemName, StringComparison.InvariantCultureIgnoreCase)) != null;
             if (alreadyMarkedAsInstalled)
                 installedPluginSystemNames.Remove(systemName);
@@ -452,7 +449,7 @@ namespace Soft.Core.Plugins
         }
 
         /// <summary>
-        /// Mark plugin as uninstalled
+        ///     Mark plugin as uninstalled
         /// </summary>
         public static void MarkAllPluginsAsUninstalled()
         {

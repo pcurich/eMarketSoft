@@ -17,14 +17,14 @@ namespace Soft.Core.Infrastructure
         IList<Assembly> GetAssemblies();
 
         /// <summary>
-        /// Encuentra clases
+        /// Encuentra clases de tipo Type
         /// </summary>
         /// <param name="assignTypeFrom">Tipo de clase a buscar.</param>
         /// <param name="onlyConcreteClasses">Si es <c>true</c> [solo clases concretas].</param>
         IEnumerable<Type> FindClassesOfType(Type assignTypeFrom, bool onlyConcreteClasses = true);
 
         /// <summary>
-        /// Encuentra clases
+        /// Encuentra clases de tipo Type
         /// </summary>
         /// <param name="assignTypeFrom">Tipo de clase a buscar.</param>
         /// <param name="assemblies">Lista de ensambaldos de donde debe buscar</param>
@@ -33,7 +33,7 @@ namespace Soft.Core.Infrastructure
         IEnumerable<Type> FindClassesOfType(Type assignTypeFrom, IEnumerable<Assembly> assemblies,bool onlyConcreteClasses = true);
 
         /// <summary>
-        /// Encuentra clases
+        /// Encuentra clases de tipo T
         /// </summary>
         /// <typeparam name="T">Tipo de clase a buscar</typeparam>
         /// <param name="onlyConcreteClasses">Si es <c>true</c> [solo clases concretas].</param>
@@ -41,7 +41,7 @@ namespace Soft.Core.Infrastructure
         IEnumerable<Type> FindClassesOfType<T>(bool onlyConcreteClasses = true);
 
         /// <summary>
-        /// Encuentra clases
+        /// Encuentra clases Dde tipo T
         /// </summary>
         /// <typeparam name="T">Tipo de clase a buscar</typeparam>
         /// <param name="assemblies">Lista de ensambaldos de donde debe buscar</param>

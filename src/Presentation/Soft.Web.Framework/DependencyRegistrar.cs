@@ -18,7 +18,7 @@ using Soft.Core.Infrastructure;
 using Soft.Core.Infrastructure.DependencyManagement;
 using Soft.Core.Plugins;
 using Soft.Core.Plugins.Official;
-using Soft.Data.Ef;
+using Soft.Data.Entities;
 using Soft.Services.Affiliates;
 using Soft.Services.Authentication;
 using Soft.Services.Authentication.External;

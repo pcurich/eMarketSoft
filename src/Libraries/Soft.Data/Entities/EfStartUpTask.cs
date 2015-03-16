@@ -2,7 +2,7 @@
 using Soft.Core.Data;
 using Soft.Core.Infrastructure;
 
-namespace Soft.Data.Ef
+namespace Soft.Data.Entities
 {
     public class EfStartUpTask : IStartupTask
     {

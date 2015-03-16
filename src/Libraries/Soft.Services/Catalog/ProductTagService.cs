@@ -6,7 +6,7 @@ using Soft.Core.Caching;
 using Soft.Core.Data;
 using Soft.Core.Domain.Catalog;
 using Soft.Core.Domain.Common.Settings;
-using Soft.Data.Ef;
+using Soft.Data.Entities;
 using Soft.Services.Events;
 
 namespace Soft.Services.Catalog

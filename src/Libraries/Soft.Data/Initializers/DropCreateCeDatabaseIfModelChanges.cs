@@ -5,61 +5,53 @@ using System.Transactions;
 namespace Soft.Data.Initializers
 {
     /// <summary>
-    /// An implementation of IDatabaseInitializer that will <b>DELETE</b>, recreate, and optionally re-seed the
-    /// database only if the model has changed since the database was created.  This is achieved by writing a
-    /// hash of the store model to the database when it is created and then comparing that hash with one
-    /// generated from the current model.
-    /// To seed the database, create a derived class and override the Seed method.
+    ///     Una implementacion de IDatabaseInitializer que <b>Borra</b>, <b>recrea</b> y opcionalmente
+    ///     poblara la base de datos solo si el modelo ha cambiado desde la ultima vez que la base fue creada.
+    ///     Este es archivado escribiendo un hash del modelo almacenado en la base de datos cuando esta fue creada y entonces
+    ///     se compraran el hash con el generado por el modelo actual
+    ///     Para poblar la base de datos, cree una deribada y sobreescriba el metodo seed
     /// </summary>
     public class DropCreateCeDatabaseIfModelChanges<TContext> : SqlCeInitializer<TContext> where TContext : DbContext
     {
         #region Strategy implementation
 
         /// <summary>
-        /// Executes the strategy to initialize the database for the given context.
+        ///     Ejecuta la estrategia para inicializar la base de datos para el contexto dado
         /// </summary>
-        /// <param name="context">The context.</param>
+        /// <param name="context">El contexto</param>
         public override void InitializeDatabase(TContext context)
         {
             if (context == null)
-            {
                 throw new ArgumentNullException("context");
-            }
 
             var replacedContext = ReplaceSqlCeConnection(context);
 
             bool databaseExists;
             using (new TransactionScope(TransactionScopeOption.Suppress))
-            {
                 databaseExists = replacedContext.Database.Exists();
-            }
 
             if (databaseExists)
             {
-                if (context.Database.CompatibleWithModel(throwIfNoMetadata: true))
-                {
+                if (context.Database.CompatibleWithModel(true))
                     return;
-                }
-
                 replacedContext.Database.Delete();
             }
 
-            // Database didn't exist or we deleted it, so we now create it again.
+            // Database no existe o fue borrada, entonces se recreara otra vez.
             context.Database.Create();
-
             Seed(context);
             context.SaveChanges();
         }
 
         #endregion
 
-        #region Seeding methods
+        #region Seeding 
 
         /// <summary>
-        /// A that should be overridden to actually add data to the context for seeding. 
-        /// The default implementation does nothing.
+        ///     Esto deberia ser sobreescrito para apregar la data en el contexto para
+        ///     ser insertado
         /// </summary>
-        /// <param name="context">The context to seed.</param>
+        /// <param name="context">El contexto a poblar</param>
         protected virtual void Seed(TContext context)
         {
         }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Security.Principal;
@@ -9,22 +10,17 @@ namespace Soft.Core.Fakes
 {
     public class FakeHttpContext : HttpContextBase
     {
+        private IPrincipal _principal;
+        private HttpRequestBase _request;
+        private HttpResponseBase _response;
         private readonly HttpCookieCollection _cookies;
         private readonly NameValueCollection _formParams;
-        private IPrincipal _principal;
+        private readonly Dictionary<object, object> _items;
+        private readonly string _method;
         private readonly NameValueCollection _queryStringParams;
         private readonly string _relativeUrl;
-        private readonly string _method;
-        private readonly SessionStateItemCollection _sessionItems;
         private readonly NameValueCollection _serverVariables;
-        private HttpResponseBase _response;
-        private HttpRequestBase _request;
-        private readonly Dictionary<object, object> _items;
-
-        public static FakeHttpContext Root()
-        {
-            return new FakeHttpContext("~/");
-        }
+        private readonly SessionStateItemCollection _sessionItems;
 
         public FakeHttpContext(string relativeUrl, string method)
             : this(relativeUrl, method, null, null, null, null, null, null)
@@ -71,19 +67,9 @@ namespace Soft.Core.Fakes
             }
         }
 
-        public void SetRequest(HttpRequestBase request)
-        {
-            _request = request;
-        }
-
         public override HttpResponseBase Response
         {
             get { return _response ?? new FakeHttpResponse(); }
-        }
-
-        public void SetResponse(HttpResponseBase response)
-        {
-            _response = response;
         }
 
         public override IPrincipal User
@@ -97,12 +83,27 @@ namespace Soft.Core.Fakes
             get { return new FakeHttpSessionState(_sessionItems); }
         }
 
-        public override System.Collections.IDictionary Items
+        public override IDictionary Items
         {
             get { return _items; }
         }
 
         public override bool SkipAuthorization { get; set; }
+
+        public static FakeHttpContext Root()
+        {
+            return new FakeHttpContext("~/");
+        }
+
+        public void SetRequest(HttpRequestBase request)
+        {
+            _request = request;
+        }
+
+        public void SetResponse(HttpResponseBase response)
+        {
+            _response = response;
+        }
 
         public override object GetService(Type serviceType)
         {
