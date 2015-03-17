@@ -14,11 +14,11 @@ using Soft.Services.Orders;
 namespace Soft.Services.Authentication.External
 {
     /// <summary>
-    /// External authorizer
+    /// Autenticacion externa
     /// </summary>
     public partial class ExternalAuthorizer : IExternalAuthorizer
     {
-        #region Fields
+        #region campos
 
         private readonly IAuthenticationService _authenticationService;
         private readonly IOpenAuthenticationService _openAuthenticationService;
@@ -34,7 +34,7 @@ namespace Soft.Services.Authentication.External
         private readonly LocalizationSettings _localizationSettings;
         #endregion
 
-        #region Ctor
+        #region Ctr
 
         public ExternalAuthorizer(IAuthenticationService authenticationService,
             IOpenAuthenticationService openAuthenticationService,
