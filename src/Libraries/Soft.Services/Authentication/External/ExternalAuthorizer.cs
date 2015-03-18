@@ -32,10 +32,27 @@ namespace Soft.Services.Authentication.External
         private readonly IShoppingCartService _shoppingCartService;
         private readonly IWorkflowMessageService _workflowMessageService;
         private readonly LocalizationSettings _localizationSettings;
+       
         #endregion
 
         #region Ctr
 
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="authenticationService">Servicio de Autenticacion</param>
+        /// <param name="openAuthenticationService">Servicio para abrir una autenticacion</param>
+        /// <param name="genericAttributeService">Servicio de atributos genericos</param>
+        /// <param name="customerRegistrationService">Servicio de personalizacion de registro</param>
+        /// <param name="customerActivityService">Servicio de personalizacion de actividades</param>
+        /// <param name="localizationService">Servicio de Localizacion</param>
+        /// <param name="workContext">Contexto de trabajo</param>
+        /// <param name="customerSettings">Configuracion de clientes</param>
+        /// <param name="externalAuthenticationSettings">Configuracion de autenticacion externa</param>
+        /// <param name="shoppingCartService">Servicio de carrito de compras</param>
+        /// <param name="workflowMessageService">Servicio de mensajes de flujo de trabajo</param>
+        /// <param name="localizationSettings">Configuracion de Localizacion</param>
         public ExternalAuthorizer(IAuthenticationService authenticationService,
             IOpenAuthenticationService openAuthenticationService,
             IGenericAttributeService genericAttributeService,
@@ -62,37 +79,70 @@ namespace Soft.Services.Authentication.External
         
         #endregion
 
-        #region Utilities
+        #region Util
 
+        /// <summary>
+        /// Verifica si un usuario no esta desactivado y que este desabilitada 
+        /// el registro automatico de la configuracion de la cuenta externa
+        /// </summary>
+        /// <returns>Si es <c>true</c> activa el registro</returns>
         private bool RegistrationIsEnabled()
         {
             return _customerSettings.UserRegistrationType != UserRegistrationType.Disabled && !_externalAuthenticationSettings.AutoRegisterEnabled;
         }
 
+        /// <summary>
+        /// Verifica si un usuario no esta desactivado y que este habilitado
+        /// el registro automatico de la configuracion de la cuenta externa
+        /// </summary>
+        /// <returns>Si es <c>true</c> activa el auto registro</returns>
         private bool AutoRegistrationIsEnabled()
         {
             return _customerSettings.UserRegistrationType != UserRegistrationType.Disabled && _externalAuthenticationSettings.AutoRegisterEnabled;
         }
 
-        private bool AccountDoesNotExistAndUserIsNotLoggedOn(Customer userFound, Customer userLoggedIn)
+        /// <summary>
+        /// La cuenta no existe y el usuario no esta logeado
+        /// </summary>
+        /// <param name="userFound">Usuario encontrado</param>
+        /// <param name="userLoggedIn">Usuario logeado</param>
+        /// <returns>Si es <c>true</c> el usuario activo y el usuario logeado son nulos</returns>
+        private static bool AccountDoesNotExistAndUserIsNotLoggedOn(BaseEntity userFound, BaseEntity userLoggedIn)
         {
             return userFound == null && userLoggedIn == null;
         }
 
-        private bool AccountIsAssignedToLoggedOnAccount(Customer userFound, Customer userLoggedIn)
+        /// <summary>
+        /// La cuenta esta asignada a una cuenta logeada
+        /// </summary>
+        /// <param name="userFound">Usuario encontrado</param>
+        /// <param name="userLoggedIn">Usuario logeado</param>
+        /// <returns>Si es <c>true</c> el usuario encontrado es el mismo que el usuario logeado</returns>
+        private static bool AccountIsAssignedToLoggedOnAccount(BaseEntity userFound, BaseEntity userLoggedIn)
         {
             return userFound.Id.Equals(userLoggedIn.Id);
         }
 
-        private bool AccountAlreadyExists(Customer userFound, Customer userLoggedIn)
+        /// <summary>
+        /// La cuenta existe
+        /// </summary>
+        /// <param name="userFound">Usuario encontrado</param>
+        /// <param name="userLoggedIn">Usuario logeado</param>
+        /// <returns>Si es <c>true</c> el usuario encontrado y el usuario logeado no son nulos</returns>
+        private static bool AccountAlreadyExists(BaseEntity userFound, BaseEntity userLoggedIn)
         {
             return userFound != null && userLoggedIn != null;
         }
 
         #endregion
 
-        #region Methods
+        #region Metodos
 
+        /// <summary>
+        /// Autorizar
+        /// </summary>
+        /// <param name="parameters"></param>
+        /// <returns></returns>
         public virtual AuthorizationResult Authorize(OpenAuthenticationParameters parameters)
         {
             var userFound = _openAuthenticationService.GetUser(parameters);
@@ -103,12 +153,12 @@ namespace Soft.Services.Authentication.External
             {
                 if (AccountIsAssignedToLoggedOnAccount(userFound, userLoggedIn))
                 {
-                    // The person is trying to log in as himself.. bit weird
+                    // La persona está tratando de conectarse como a sí mismo.. poco raro
                     return new AuthorizationResult(OpenAuthenticationStatus.Authenticated);
                 }
 
                 var result = new AuthorizationResult(OpenAuthenticationStatus.Error);
-                result.AddError("Account is already assigned");
+                result.AddError("La cuenta ya esta asignada");
                 return result;
             }
             if (AccountDoesNotExistAndUserIsNotLoggedOn(userFound, userLoggedIn))

@@ -1,7 +1,7 @@
 ﻿namespace Soft.Core.Domain.Customers
 {
     /// <summary>
-    /// Representa el tipo de registro de im cliente para el formato
+    /// Representa el tipo de registro de un cliente para el formato
     /// <c>Cuenta standar,</c>
     /// <c>Validado por Email,</c>
     /// <c>Aprobacion por el admin,</c>

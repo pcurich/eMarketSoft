@@ -5,7 +5,7 @@ using Soft.Core.Domain.Common;
 namespace Soft.Services.Common
 {
     /// <summary>
-    /// Generic attribute service interface
+    /// Servicio de atributos genericos
     /// </summary>
     public partial interface IGenericAttributeService
     {

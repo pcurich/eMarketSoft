@@ -6,12 +6,12 @@ using Soft.Core.Plugins;
 namespace Soft.Services.Authentication.External
 {
     /// <summary>
-    /// Provides an interface for creating external authentication methods
+    /// Proporciona una interfaz para crear métodos de autenticación externos
     /// </summary>
     public partial interface IExternalAuthenticationMethod : IPlugin
     {
         /// <summary>
-        /// Gets a route for plugin configuration
+        /// Obtiene un router para el plugin de configuracion
         /// </summary>
         /// <param name="actionName">Action name</param>
         /// <param name="controllerName">Controller name</param>
@@ -20,7 +20,7 @@ namespace Soft.Services.Authentication.External
         
 
         /// <summary>
-        /// Gets a route for displaying plugin in public store
+        /// Obtiene un route para mostrar los plugins en la tienda publica
         /// </summary>
         /// <param name="actionName">Action name</param>
         /// <param name="controllerName">Controller name</param>

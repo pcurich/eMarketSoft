@@ -7,7 +7,7 @@ using Soft.Core.Infrastructure;
 namespace Soft.Services.Authentication.External
 {
     /// <summary>
-    /// External authorizer helper
+    /// Ayuda de autorizacion externa
     /// </summary>
     public static partial class ExternalAuthorizerHelper
     {
